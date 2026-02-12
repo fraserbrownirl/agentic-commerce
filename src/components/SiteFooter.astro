@@ -1,0 +1,54 @@
+---
+const companies = [
+  { name: 'PayPal', slug: 'paypal-agentic-commerce', category: 'Payments' },
+  { name: 'Stripe', slug: 'stripe-agentic-commerce', category: 'Payments' },
+  { name: 'Visa', slug: 'visa-agentic-commerce', category: 'Payments' },
+  { name: 'Mastercard', slug: 'mastercard-agentic-commerce', category: 'Payments' },
+  { name: 'Klarna', slug: 'klarna-agentic-commerce', category: 'Payments' },
+  { name: 'Shopify', slug: 'shopify-agentic-commerce', category: 'Platforms' },
+  { name: 'Wix', slug: 'wix-agentic-commerce', category: 'Platforms' },
+  { name: 'Cloudflare', slug: 'cloudflare-agentic-commerce', category: 'Platforms' },
+  { name: 'OpenAI', slug: 'openai-agentic-commerce-protocol', category: 'AI' },
+  { name: 'Google', slug: 'google-agentic-commerce', category: 'AI' },
+  { name: 'ACP Protocol', slug: 'agentic-commerce-protocol', category: 'Standards' },
+];
+
+const categories = ['Payments', 'Platforms', 'AI', 'Standards'] as const;
+---
+
+<footer class="border-t border-border bg-card py-12">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid md:grid-cols-4 gap-8 mb-12">
+      {categories.map((cat) => (
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-widest text-accent mb-4">{cat}</h3>
+          <ul class="space-y-2">
+            {companies
+              .filter((c) => c.category === cat)
+              .map((company) => (
+                <li>
+                  <a
+                    href={`/${company.slug}`}
+                    class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {company.name}
+                  </a>
+                </li>
+              ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="border-t border-border pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-xs text-muted-foreground">
+          <p>&copy; 2026 Agentic Commerce. All rights reserved.</p>
+        </div>
+        <a href="/" class="text-xs text-accent hover:underline underline-offset-4">
+          What is Agentic Commerce?
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

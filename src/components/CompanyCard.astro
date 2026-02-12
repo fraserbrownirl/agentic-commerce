@@ -1,0 +1,28 @@
+---
+interface Props {
+  name: string;
+  slug: string;
+  headline?: string;
+  summary?: string;
+}
+const { name, slug, headline, summary } = Astro.props;
+---
+
+<a
+  href={`/${slug}`}
+  class="block p-4 border border-border rounded-lg hover:border-accent transition-colors group"
+>
+  <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">
+    {name}
+  </p>
+  {headline && (
+    <h3 class="text-sm font-semibold group-hover:text-accent transition-colors line-clamp-2">
+      {headline}
+    </h3>
+  )}
+  {summary && (
+    <p class="text-xs text-muted-foreground mt-2 line-clamp-2">
+      {summary}
+    </p>
+  )}
+</a>

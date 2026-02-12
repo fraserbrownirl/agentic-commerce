@@ -1,0 +1,114 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const companies = [
+  { name: 'PayPal', slug: 'paypal-agentic-commerce', category: 'Payments' },
+  { name: 'Stripe', slug: 'stripe-agentic-commerce', category: 'Payments' },
+  { name: 'Visa', slug: 'visa-agentic-commerce', category: 'Payments' },
+  { name: 'Mastercard', slug: 'mastercard-agentic-commerce', category: 'Payments' },
+  { name: 'Klarna', slug: 'klarna-agentic-commerce', category: 'Payments' },
+  { name: 'Shopify', slug: 'shopify-agentic-commerce', category: 'Platforms' },
+  { name: 'Wix', slug: 'wix-agentic-commerce', category: 'Platforms' },
+  { name: 'Cloudflare', slug: 'cloudflare-agentic-commerce', category: 'Platforms' },
+  { name: 'OpenAI', slug: 'openai-agentic-commerce-protocol', category: 'AI' },
+  { name: 'Google', slug: 'google-agentic-commerce', category: 'AI' },
+  { name: 'ACP Protocol', slug: 'agentic-commerce-protocol', category: 'Standards' },
+];
+
+const categories = ['Payments', 'Platforms', 'AI', 'Standards'] as const;
+---
+
+<header class="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur-sm">
+  <nav class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="text-lg font-bold leading-tight">
+      Agentic<br />Commerce
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-8">
+      <!-- Companies Dropdown -->
+      <div class="relative group">
+        <button class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-default">
+          Companies
+        </button>
+        <div class="absolute left-0 mt-0 pt-2 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="bg-card border border-border rounded-md shadow-lg py-2">
+            {categories.map((cat) => (
+              <div class="px-4 py-1">
+                <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">{cat}</p>
+                {companies
+                  .filter((c) => c.category === cat)
+                  .map((company) => (
+                    <a
+                      href={`/${company.slug}`}
+                      class="block text-sm text-foreground hover:text-accent py-1"
+                    >
+                      {company.name}
+                    </a>
+                  ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <a href="/our-plan" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+        Our Plan
+      </a>
+    </div>
+
+    <!-- Theme Toggle & Mobile Menu Button -->
+    <div class="flex items-center gap-4">
+      <ThemeToggle />
+      <button
+        id="mobile-menu-toggle"
+        class="md:hidden text-foreground"
+        aria-label="Toggle mobile menu"
+      >
+        <!-- Hamburger icon -->
+        <svg id="menu-icon-open" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <!-- Close icon -->
+        <svg id="menu-icon-close" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-card px-6 py-4 space-y-4">
+    {categories.map((cat) => (
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">{cat}</p>
+        {companies
+          .filter((c) => c.category === cat)
+          .map((company) => (
+            <a
+              href={`/${company.slug}`}
+              class="block text-sm text-foreground hover:text-accent py-1"
+            >
+              {company.name}
+            </a>
+          ))}
+      </div>
+    ))}
+    <a href="/our-plan" class="block text-sm text-foreground hover:text-accent py-1">
+      Our Plan
+    </a>
+  </div>
+</header>
+
+<script is:inline>
+  const btn = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+  });
+</script>

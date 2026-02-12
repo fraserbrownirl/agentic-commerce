@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedCompanies from '../components/RelatedCompanies.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = "Visa Agentic Commerce — AI Payments Strategy & News";
+const description = "How Visa is preparing for agentic commerce. Visa's strategy for AI agent payments, network integrations, and intelligent commerce.";
+const canonical = "https://agentic.commerce/visa-agentic-commerce";
+const lastUpdated = "2026-02-12";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "Visa", url: canonical },
+];
+
+const faqItems = [
+  { question: "What is Visa's agentic commerce strategy?", answer: "Visa's agentic commerce strategy focuses on building Intelligent Commerce payments infrastructure that enables AI agents to securely process transactions across Visa's global network. Visa is adapting its tokenization, authentication, and fraud prevention systems to support agent-initiated payments while maintaining the trust and security standards that merchants and consumers expect." },
+  { question: "How does Visa support AI agent payments?", answer: "Visa supports AI agent payments through its network-level infrastructure including tokenized credentials, secure payment APIs, and intelligent routing. These capabilities allow AI agents to authenticate, authorize, and settle transactions on behalf of users across Visa's network of 80+ million merchant locations globally." },
+];
+
+const relatedCompanies = [
+  { name: "Mastercard", slug: "mastercard-agentic-commerce" },
+  { name: "PayPal", slug: "paypal-agentic-commerce" },
+  { name: "Stripe", slug: "stripe-agentic-commerce" },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": "2026-02-12",
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: {lastUpdated}</p>
+    <h1 class="text-4xl font-bold mb-6">Visa Agentic Commerce</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Visa's Agentic Commerce Strategy</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Visa has positioned itself at the center of the emerging agentic commerce ecosystem through a comprehensive strategy it calls Intelligent Commerce. As the world's largest payment network, processing over 200 billion transactions annually across more than 80 million merchant locations, Visa recognizes that AI agents represent a fundamental shift in how commerce is initiated, authorized, and completed. The company's agentic commerce strategy focuses on adapting its core network infrastructure — tokenization, authentication, fraud detection, and settlement — to support a new class of non-human actors that transact on behalf of consumers and businesses. Rather than building consumer-facing AI agents itself, Visa is investing in the rails and protocols that allow any AI agent, regardless of its origin, to securely interact with the Visa network.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Central to Visa's approach is its tokenization platform, which replaces sensitive card numbers with unique digital tokens that can be scoped to specific agents, merchants, or transaction types. This capability is critical for agentic commerce because it allows consumers to delegate spending authority to AI agents without exposing their underlying financial credentials. Visa has extended its token provisioning APIs to support agent-specific tokens that carry embedded spending limits, merchant category restrictions, and time-based validity windows. These programmable tokens give consumers granular control over what their AI agents can purchase and where, addressing one of the primary trust barriers to autonomous agent transactions. Visa's strategy also encompasses real-time risk scoring that factors in agent behavior patterns, enabling the network to distinguish between legitimate agent-initiated transactions and potentially fraudulent activity. By layering these capabilities onto its existing global infrastructure, Visa aims to make agentic commerce as seamless and secure as traditional card-present and card-not-present transactions, ensuring that the transition to AI-mediated payments does not compromise the trust that underpins the entire payments ecosystem.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Visa Agentic Commerce Partnerships</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Visa has pursued an extensive partnership strategy to ensure its agentic commerce infrastructure integrates with the broader AI ecosystem. The company has engaged with leading AI platform providers, fintech companies, and enterprise software vendors to create interoperable standards for agent-initiated payments. Visa's partnerships with major cloud providers and AI development platforms aim to embed payment capabilities directly into the environments where AI agents are built and deployed. By making Visa's payment APIs accessible within popular AI agent frameworks, the company reduces friction for developers who want to give their agents the ability to transact. Visa has also partnered with identity verification providers to develop agent authentication standards that can confirm both the identity of the human principal and the legitimacy of the AI agent acting on their behalf.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        On the merchant side, Visa has collaborated with major e-commerce platforms and point-of-sale providers to ensure their systems can accept and process agent-initiated transactions without requiring significant infrastructure changes. These partnerships are essential because agentic commerce will only scale if merchants can accept AI-mediated payments as easily as they accept traditional ones. Visa has also been an active participant in cross-industry working groups exploring the development of universal agent commerce protocols, recognizing that no single company can define the standards for an ecosystem this complex. The company's partnership with Mastercard on shared security standards for agent transactions signals a willingness to collaborate even with direct competitors when the goal is building foundational infrastructure that benefits the entire payments industry. Additionally, Visa has forged relationships with regulatory technology firms to build compliance frameworks that can adapt to the evolving legal landscape around autonomous transactions, ensuring that agent-initiated payments meet know-your-customer and anti-money-laundering requirements across every jurisdiction where Visa operates.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Visa Agentic Commerce News</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Visa has made a series of significant announcements throughout 2025 and into early 2026 that underscore its commitment to agentic commerce. In mid-2025, Visa unveiled its Intelligent Commerce initiative at its annual Visa Payments Forum, describing it as the company's strategic framework for enabling AI agent transactions across its global network. The announcement included details on new APIs specifically designed for agent-to-merchant interactions, expanded tokenization capabilities that support agent-scoped credentials, and enhanced fraud detection models trained on emerging agent transaction patterns. Industry analysts noted that Visa's approach was notably infrastructure-focused, positioning the company as a neutral enabler rather than a competitor to the AI agent platforms themselves.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        In late 2025, Visa reported that it had completed successful pilot programs with several large retailers and AI platforms, demonstrating end-to-end agent-initiated transactions processed through the Visa network. These pilots validated the performance of Visa's agent-specific tokenization system and showed that existing merchant infrastructure could handle agent transactions with minimal modifications. Visa also announced expanded investment in its AI and machine learning capabilities, noting that the company had increased its technology workforce dedicated to agentic commerce by over 40 percent during the year. In early 2026, Visa published a white paper on the economic implications of agentic commerce, projecting that AI agent-initiated transactions could represent a meaningful share of global digital commerce volume within the next three to five years. The paper highlighted the need for industry-wide collaboration on standards and security, themes that Visa has consistently emphasized in its public communications. As of February 2026, Visa continues to expand its agentic commerce capabilities, with additional partnership announcements and product launches expected throughout the year as the company moves from pilot programs to production-scale deployment across its network.
+      </p>
+    </section>
+
+    <FAQ items={faqItems} />
+    <RelatedCompanies companies={relatedCompanies} />
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

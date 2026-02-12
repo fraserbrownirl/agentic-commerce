@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedCompanies from '../components/RelatedCompanies.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = "Cloudflare Agentic Commerce — Infrastructure for AI Agents";
+const description = "Cloudflare's role in agentic commerce infrastructure. How Cloudflare is building the network layer for AI agent transactions and commerce.";
+const canonical = "https://agentic.commerce/cloudflare-agentic-commerce";
+const lastUpdated = "2026-02-12";
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "Cloudflare", url: canonical },
+];
+const faqItems = [
+  { question: "How do Cloudflare Workers support agentic commerce?", answer: "Cloudflare Workers provide a serverless edge computing platform that enables developers to deploy agent-facing commerce APIs at over 300 global points of presence. Workers can handle product queries, price lookups, inventory checks, and checkout orchestration with sub-millisecond cold starts, making them well-suited for the low-latency, high-throughput request patterns that AI purchasing agents generate. Merchants and platforms can use Workers to build lightweight agent endpoints without managing traditional server infrastructure." },
+  { question: "What role does Cloudflare AI Gateway play in agentic commerce?", answer: "Cloudflare AI Gateway acts as a unified control plane for managing AI API traffic, including requests from commerce-focused AI agents. It provides rate limiting, caching, request logging, cost tracking, and fallback routing across multiple AI model providers. For agentic commerce, AI Gateway helps merchants and platforms monitor agent interactions, enforce usage policies, and optimize the cost of AI-mediated transactions flowing through their infrastructure." },
+];
+const relatedCompanies = [
+  { name: "Shopify", slug: "shopify-agentic-commerce" },
+  { name: "Stripe", slug: "stripe-agentic-commerce" },
+  { name: "OpenAI", slug: "openai-agentic-commerce-protocol" },
+];
+const jsonLd = [
+  { "@context": "https://schema.org", "@type": "Article", "headline": title, "description": description, "datePublished": "2026-02-12", "dateModified": lastUpdated, "author": { "@type": "Organization", "name": "Agentic Commerce" } },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": breadcrumbs.map((b, i) => ({ "@type": "ListItem", "position": i + 1, "name": b.name, "item": b.url })) },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: {lastUpdated}</p>
+    <h1 class="text-4xl font-bold mb-6">Cloudflare Agentic Commerce</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Cloudflare's Agentic Commerce Infrastructure</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Cloudflare occupies a distinctive position in the agentic commerce ecosystem — not as a merchant platform or payment processor, but as the infrastructure layer through which AI agent traffic flows. The company's global network, spanning more than 300 cities across over 100 countries, already handles a substantial share of internet requests, and the emergence of autonomous purchasing agents is introducing an entirely new category of traffic that Cloudflare's edge computing architecture is uniquely equipped to serve. Unlike human browsing sessions that generate sporadic, latency-tolerant requests, AI agents issue rapid, parallelized API calls across multiple merchants simultaneously, comparing prices, evaluating fulfillment options, and executing transactions in fractions of a second. This traffic pattern demands infrastructure that can deliver consistent sub-50-millisecond response times at global scale — precisely the performance profile that Cloudflare's edge network is designed to provide.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Cloudflare Workers, the company's serverless edge computing platform, forms the backbone of its agentic commerce infrastructure play. Workers allow developers to deploy lightweight compute functions at every Cloudflare edge location, enabling agent-facing APIs to execute product lookups, inventory queries, dynamic pricing calculations, and checkout orchestration without routing requests back to centralized origin servers. For merchants and commerce platforms, this means the ability to serve AI agent requests from the network edge closest to the agent's origin, dramatically reducing latency and improving the likelihood that their storefront is selected by comparison-shopping algorithms that penalize slow response times. Workers' sub-millisecond cold start times and support for WebSocket connections further align with the persistent, high-frequency communication patterns that sophisticated agent architectures employ when conducting multi-step purchasing workflows.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Beyond raw compute, Cloudflare's infrastructure provides critical security and reliability primitives for agentic commerce. The company's bot management and rate limiting tools are being adapted to distinguish between legitimate AI purchasing agents and malicious automated traffic — a nuanced challenge, since the same technical patterns (headless API calls, high request volumes, programmatic navigation) characterize both categories. Cloudflare's approach involves a combination of behavioral analysis, cryptographic agent attestation, and configurable policy engines that allow merchants to define granular rules for agent access. This security layer is essential for the viability of agentic commerce at scale; without reliable mechanisms to authenticate and authorize AI agents, merchants face unacceptable risks from scraping, inventory manipulation, and fraudulent transactions masquerading as legitimate agent activity.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Cloudflare AI Gateway and Commerce</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Cloudflare AI Gateway represents a pivotal component of the company's agentic commerce strategy, serving as a unified control plane for managing the AI API traffic that underpins agent-mediated transactions. AI Gateway sits between commerce applications and the large language models or specialized AI services that power purchasing agents, providing observability, cost management, and reliability features that are indispensable for production-grade agentic commerce deployments. The product supports routing to multiple AI providers — including OpenAI, Anthropic, Google, and self-hosted models — with automatic fallback, retry logic, and load balancing. For commerce operators, this means that the AI inference powering their agent-facing services remains available even when individual model providers experience outages or degraded performance, a resilience requirement that becomes critical as agent-driven revenue grows.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The cost management capabilities of AI Gateway are particularly relevant in the agentic commerce context. Every agent interaction that involves natural-language product understanding, specification matching, or negotiation logic consumes AI inference tokens, and these costs can escalate rapidly when agents process thousands of concurrent purchasing requests. AI Gateway provides real-time cost tracking, per-request token accounting, and configurable spending limits that allow commerce platforms to maintain profitability as agent traffic scales. The product also supports semantic caching, where responses to similar agent queries are served from cache rather than triggering redundant inference calls, reducing both cost and latency. For a merchant receiving repetitive product specification queries from multiple agents, semantic caching can reduce AI inference costs by an order of magnitude while simultaneously improving response times — a dual benefit that directly impacts competitiveness in agent-mediated product comparison workflows.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        AI Gateway's logging and analytics features provide commerce operators with granular visibility into how AI agents interact with their services. Every request flowing through the gateway is logged with metadata including the originating agent, the model invoked, token consumption, latency, and response status. This data enables operators to identify which agents drive the most valuable traffic, detect anomalous query patterns that may indicate adversarial behavior, and optimize their agent-facing APIs based on observed usage. In the broader agentic commerce ecosystem, Cloudflare AI Gateway functions as an instrumentation layer that transforms opaque agent traffic into actionable intelligence — a capability that is essential as businesses transition from treating AI agents as an experimental curiosity to managing them as a primary revenue channel with formal performance metrics and service-level expectations.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Cloudflare Agentic Commerce News</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Cloudflare's positioning in the agentic commerce space has accelerated throughout 2025 and early 2026, with a series of product announcements and strategic partnerships that underscore the company's commitment to becoming the default infrastructure provider for AI agent traffic. At its annual Developer Week conference, Cloudflare unveiled a suite of agent-specific networking features, including authenticated agent channels that allow AI purchasing agents to establish verified identities when connecting to merchant endpoints, and priority routing tiers that enable merchants to allocate premium network performance to high-value agent traffic. These features address a growing industry concern that undifferentiated agent access will commoditize merchant interactions; by enabling performance and trust tiering, Cloudflare allows merchants to offer better service to agents that represent verified, high-intent buyers.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The company has also expanded its developer platform with tools specifically designed for building agentic commerce applications. Cloudflare's Durable Objects, which provide strongly consistent, globally distributed state management at the edge, have been enhanced with transaction-aware primitives that support the multi-step, stateful workflows characteristic of agent purchasing sessions. A typical agent transaction — involving product discovery, specification validation, price negotiation, payment authorization, and order confirmation — requires maintaining coherent state across multiple asynchronous steps, and Durable Objects provide a natural abstraction for this pattern. Cloudflare has published reference architectures and open-source starter templates demonstrating how to build complete agent-facing commerce APIs using Workers, Durable Objects, and AI Gateway in concert, lowering the barrier to entry for developers building agentic commerce infrastructure.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Industry analysts have noted that Cloudflare's infrastructure-centric approach to agentic commerce positions the company as a neutral enabling layer rather than a competitive threat to the platforms, payment processors, and AI providers that constitute the broader ecosystem. This neutrality is a strategic asset: while Shopify, Stripe, and OpenAI each have commercial interests that may conflict with certain ecosystem participants, Cloudflare's role as an infrastructure provider aligns its incentives with the overall growth of agent traffic volume regardless of which specific platforms, payment rails, or AI models prevail. As agentic commerce matures from early experimentation to production-scale deployment, the demand for reliable, performant, and secure network infrastructure is expected to grow proportionally — a trajectory that positions Cloudflare's edge network, developer platform, and AI Gateway as foundational components of the emerging agent economy.
+      </p>
+    </section>
+
+    <FAQ items={faqItems} />
+    <RelatedCompanies companies={relatedCompanies} />
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

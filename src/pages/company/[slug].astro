@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { articles } from '../../data/articles';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+};
+
+const { article } = Astro.props;
+
+const title = `${article.headline} | Agentic Commerce`;
+const description = article.summary;
+const canonical = `https://agentic.commerce/company/${article.slug}`;
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: article.companyName, url: canonical },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.headline,
+    "description": article.summary,
+    "datePublished": "2026-02-12",
+    "dateModified": "2026-02-12",
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+    "publisher": { "@type": "Organization", "name": "Agentic Commerce" },
+    "about": { "@type": "Organization", "name": article.companyName },
+    "keywords": `agentic commerce news, agentic commerce protocol, ${article.companyName}`,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+
+const bodyParagraphs = article.body.split('\n').filter((p: string) => p.trim().length > 0);
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: February 12, 2026</p>
+
+    <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">
+      {article.companyName}
+    </p>
+    <h1 class="text-4xl font-bold mb-6">{article.headline}</h1>
+
+    <!-- Summary callout -->
+    <div class="border-l-4 border-accent pl-4 mb-8">
+      <p class="text-base text-muted-foreground leading-relaxed italic">
+        {article.summary}
+      </p>
+    </div>
+
+    <!-- Article body -->
+    <div class="space-y-4">
+      {bodyParagraphs.map((paragraph: string) => (
+        <p class="text-base leading-relaxed text-muted-foreground">{paragraph}</p>
+      ))}
+    </div>
+
+    <!-- Back to homepage -->
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

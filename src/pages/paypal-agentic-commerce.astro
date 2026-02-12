@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedCompanies from '../components/RelatedCompanies.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = "PayPal Agentic Commerce — Strategy, News & Initiatives";
+const description = "How PayPal is building for agentic commerce. Covering PayPal's agentic AI initiatives, partnerships with Mastercard, Google, and Wix, and what it means for payments.";
+const canonical = "https://agentic.commerce/paypal-agentic-commerce";
+const lastUpdated = "2026-02-12";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "PayPal", url: canonical },
+];
+
+const faqItems = [
+  { question: "What is PayPal's agentic commerce strategy?", answer: "PayPal's agentic commerce strategy centers on making its platform 'agent ready' so AI agents can initiate and complete payments on behalf of users. PayPal has invested heavily in AI-powered commerce experiences, including partnerships with Mastercard, Google, and Wix, to ensure its payment infrastructure supports autonomous agent-driven transactions at scale." },
+  { question: "How does PayPal work with AI agents?", answer: "PayPal enables AI agents to securely process payments by providing APIs and checkout flows optimized for agent-driven transactions. Through its 'store sync' service and agent-ready platform features, PayPal allows agents to authenticate users, select payment methods, and complete purchases while maintaining security and compliance with financial regulations." },
+  { question: "Which companies has PayPal partnered with for agentic commerce?", answer: "PayPal has formed strategic partnerships with Mastercard for agentic payments infrastructure, Google for AI-powered commerce integration, and Wix for merchant-side readiness. These partnerships ensure that PayPal's agent-ready capabilities span across payment networks, AI platforms, and e-commerce storefronts." },
+];
+
+const relatedCompanies = [
+  { name: "Stripe", slug: "stripe-agentic-commerce" },
+  { name: "Mastercard", slug: "mastercard-agentic-commerce" },
+  { name: "Visa", slug: "visa-agentic-commerce" },
+  { name: "Wix", slug: "wix-agentic-commerce" },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": "2026-02-12",
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: {lastUpdated}</p>
+    <h1 class="text-4xl font-bold mb-6">PayPal Agentic Commerce</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">PayPal's Agentic Commerce Strategy</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        PayPal has positioned itself as one of the most forward-leaning payments companies in the agentic commerce space, declaring its intent to become fully "agent ready" across its global platform. The company's strategy revolves around transforming its existing payments infrastructure — already trusted by over 400 million consumer and merchant accounts worldwide — into a seamless layer that AI agents can interact with autonomously. Rather than building standalone AI products, PayPal has focused on retrofitting its APIs, checkout flows, and merchant tooling so that third-party agents, whether created by large language model providers, e-commerce platforms, or independent developers, can authenticate users, browse product catalogs, select payment methods, and complete transactions without requiring manual human intervention at each step.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        At CES 2025, PayPal unveiled a suite of AI-powered commerce experiences that signaled the company's broader agentic ambitions. Among the announcements were two critical services: an "agent ready" platform layer and a "store sync" service designed to bridge the gap between merchant product data and AI agent decision-making. The agent-ready layer provides standardized endpoints that AI agents can call to initiate secure payment flows, while store sync ensures that product information — including pricing, availability, and shipping options — remains current and accessible in formats optimized for machine consumption rather than human browsing.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        PayPal's approach reflects a deliberate bet that the payments layer will remain central to agentic commerce regardless of which AI platforms or agent frameworks ultimately dominate the market. By making its infrastructure compatible with the emerging Agentic Commerce Protocol and investing in interoperability across payment networks, PayPal is working to ensure that its checkout experience functions as reliably for an autonomous shopping agent as it does for a human consumer clicking through a traditional cart.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">PayPal Agentic Commerce Partnerships</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        PayPal's partnership strategy for agentic commerce spans three complementary domains: payment network infrastructure, AI platform integration, and merchant-side readiness. The company has announced significant collaborations with Mastercard, Google, and Wix, each of which addresses a distinct layer of the agentic commerce stack. Together, these partnerships form an ecosystem play that extends PayPal's reach well beyond its own platform, positioning the company as an essential intermediary in agent-driven transactions regardless of where those transactions originate or which networks they traverse.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The Mastercard partnership is particularly notable because it connects PayPal's agent-ready infrastructure to one of the world's largest payment card networks. This collaboration means that AI agents processing payments through PayPal can tap into Mastercard's global acceptance network, fraud detection capabilities, and tokenization services. For merchants, it reduces the friction of accepting agent-initiated payments because the underlying card-network infrastructure already supports the transaction security and settlement workflows required. The Google partnership, meanwhile, extends PayPal's agentic commerce capabilities into the AI platform layer. By integrating with Google's AI ecosystem, PayPal ensures that agents built on Google's models and frameworks can natively access PayPal checkout flows, enabling a seamless bridge between conversational AI experiences and actual payment execution.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        On the merchant side, PayPal's collaboration with Wix addresses the critical challenge of storefront readiness. Many merchants still operate websites and product catalogs that are designed exclusively for human browsing, making it difficult for AI agents to parse product information, check availability, and initiate purchases programmatically. The Wix partnership focuses on equipping merchants with tools that structure their storefront data in agent-friendly formats, ensuring that PayPal-powered checkout flows can be triggered reliably by agents navigating Wix-built commerce sites. This three-pronged approach — payment network, AI platform, and merchant readiness — gives PayPal a differentiated position in the agentic commerce landscape.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">PayPal Agentic Commerce News</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        PayPal's agentic commerce initiatives have generated considerable attention across the fintech and AI industries since the company's major announcements at CES 2025. The unveiling of the agent-ready platform and store sync services marked a pivotal moment for the company, signaling a strategic shift from incremental AI feature additions — such as smarter fraud detection and personalized offers — to a fundamental rearchitecting of how PayPal's infrastructure interacts with autonomous software agents. Industry analysts have noted that PayPal's timing aligns with a broader wave of agentic commerce investment from competitors including Stripe, Visa, and Klarna, suggesting that the payments industry as a whole views agent-driven transactions as an imminent, high-growth opportunity rather than a distant theoretical concept.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Following the CES announcements, PayPal continued to build momentum by detailing its ACP-ready status, confirming that its platform meets the technical requirements of the Agentic Commerce Protocol being developed in collaboration with companies like Stripe and OpenAI. This interoperability commitment is significant because it suggests PayPal does not intend to pursue a proprietary walled-garden approach to agent payments, but instead favors open standards that allow agents from any provider to transact through PayPal's infrastructure. The company has also expanded its developer documentation to include agentic use cases, providing reference architectures and sample implementations that demonstrate how AI agents can authenticate with PayPal, retrieve user payment preferences, and execute purchases using both traditional checkout flows and newer headless commerce patterns.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Looking ahead, PayPal's roadmap for agentic commerce is expected to include deeper integrations with large language model providers, expanded merchant onboarding tools for agent-ready storefronts, and enhanced security protocols specifically designed for agent-to-agent and agent-to-merchant interactions. The company operates across global regions and processes billions of transactions annually, giving it both the scale and the transaction data necessary to refine AI-powered commerce experiences iteratively. As the agentic commerce ecosystem matures, PayPal's early investments in infrastructure readiness, strategic partnerships, and protocol compatibility position it as a central player in the payments layer of the agent-driven economy.
+      </p>
+    </section>
+
+    <FAQ items={faqItems} />
+    <RelatedCompanies companies={relatedCompanies} />
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

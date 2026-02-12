@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedCompanies from '../components/RelatedCompanies.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = "Stripe Agentic Commerce Suite — Protocol, News & Tools";
+const description = "Stripe's agentic commerce suite and protocol explained. How Stripe is partnering with OpenAI to build infrastructure for AI agent payments.";
+const canonical = "https://agentic.commerce/stripe-agentic-commerce";
+const lastUpdated = "2026-02-12";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "Stripe", url: canonical },
+];
+
+const faqItems = [
+  { question: "What is Stripe's agentic commerce suite?", answer: "Stripe's agentic commerce suite is a collection of APIs, SDKs, and infrastructure tools purpose-built for AI agents to initiate, authorize, and complete financial transactions. The suite includes agent-optimized checkout flows, payment intents designed for machine-to-machine interaction, and developer tooling that makes it straightforward to integrate Stripe payments into any AI agent framework." },
+  { question: "What is the Stripe and OpenAI Agentic Commerce Protocol?", answer: "The Agentic Commerce Protocol (ACP) is a jointly developed standard between Stripe and OpenAI that defines how AI agents discover, negotiate, and pay for goods and services. It establishes common interfaces for agent authentication, transaction initiation, payment method selection, and order confirmation, enabling interoperability across different AI platforms and payment providers." },
+  { question: "How do developers add Stripe payments to AI agents?", answer: "Developers can integrate Stripe payments into AI agents using Stripe's agent-optimized APIs and the Agentic Commerce Protocol. Stripe has published detailed documentation, including a blog post on adding payments to AI agents, that walks through authentication flows, payment intent creation, and handling agent-driven checkout sessions using existing Stripe SDKs." },
+];
+
+const relatedCompanies = [
+  { name: "OpenAI", slug: "openai-agentic-commerce-protocol" },
+  { name: "PayPal", slug: "paypal-agentic-commerce" },
+  { name: "ACP Protocol", slug: "agentic-commerce-protocol" },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": "2026-02-12",
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: {lastUpdated}</p>
+    <h1 class="text-4xl font-bold mb-6">Stripe Agentic Commerce</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Stripe Agentic Commerce Suite</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Stripe has emerged as one of the most technically ambitious players in the agentic commerce space, developing a comprehensive suite of payment tools and infrastructure specifically designed for AI agent interactions. The company's agentic commerce suite extends Stripe's existing developer-first philosophy into a new paradigm: rather than optimizing checkout flows for human users navigating web pages, Stripe is building AI-native payment infrastructure that allows autonomous agents to discover products, initiate transactions, handle payment authentication, and confirm orders entirely through programmatic interfaces. This represents a fundamental evolution of Stripe's core value proposition, shifting from "payments for the internet" to payments for the agent-driven economy.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        At the center of the suite is a set of agent-optimized APIs that streamline the payment lifecycle for machine-to-machine interactions. Traditional payment flows rely heavily on browser-based redirects, visual checkout forms, and human confirmation steps — none of which translate well to agent-driven commerce. Stripe's agentic tools replace these friction points with structured API calls that agents can execute programmatically, including creating payment intents, selecting stored payment methods on behalf of authenticated users, and handling 3D Secure or other verification requirements through non-visual channels. The suite is designed to be framework-agnostic, meaning agents built on OpenAI, Anthropic, Google, or open-source foundations can all integrate Stripe payments without requiring platform-specific adapters.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Stripe has also published extensive developer documentation and a widely cited blog post on adding payments to AI agents, which provides reference architectures and step-by-step integration guides. This emphasis on developer education reflects Stripe's recognition that the agentic commerce ecosystem is still nascent, and that widespread adoption depends on making it as straightforward as possible for AI developers — who may not have deep payments expertise — to embed secure, compliant transaction capabilities into their agents. The company operates globally, processing payments in over 135 currencies, which gives its agentic commerce suite an inherent advantage in supporting cross-border agent-driven transactions.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Stripe and OpenAI Agentic Commerce Protocol</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The most consequential development in Stripe's agentic commerce strategy is its collaboration with OpenAI on the Agentic Commerce Protocol, commonly referred to as ACP. This jointly developed standard defines the technical interfaces and interaction patterns that AI agents use to conduct commercial transactions across the open internet. The protocol addresses a foundational challenge in agentic commerce: without a shared standard, every AI platform and every payment provider would need to build custom integrations with each other, creating an unsustainable matrix of point-to-point connections that would slow adoption and fragment the ecosystem.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        ACP establishes common specifications for several critical stages of agent-driven transactions. These include agent identity and authentication, which ensures that payment providers can verify which agent is acting on behalf of which user; product and service discovery, which defines how agents query merchant catalogs and receive structured responses; transaction initiation and payment method selection, which standardizes how agents create and authorize payments; and order confirmation and receipt handling, which ensures both the agent and the user have clear records of completed transactions. By codifying these interactions into a protocol, Stripe and OpenAI are creating the plumbing that allows any ACP-compatible agent to transact with any ACP-compatible merchant or payment provider.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The Stripe-OpenAI partnership on ACP is strategically significant for both companies. For Stripe, it positions the company at the center of an emerging standard that could define how trillions of dollars in agent-driven commerce flow through the global economy. For OpenAI, it ensures that agents built on its models — including the Operator agent launched in early 2025 — have a reliable, standards-based mechanism for completing real-world purchases. Other major companies, including PayPal, Visa, Mastercard, and Shopify, have signaled ACP readiness, suggesting the protocol is gaining traction as an industry-wide standard rather than remaining a bilateral arrangement between two companies.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Stripe Agentic Commerce News</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Stripe's agentic commerce announcements have generated significant attention across the fintech, AI, and developer communities. The company's blog post detailing how to add payments to AI agents became one of Stripe's most widely shared pieces of developer content, reflecting the intense interest in practical guidance for building agent-driven commerce applications. The post outlined concrete implementation patterns using Stripe's existing Payment Intents and Checkout APIs, adapted for agent workflows, and served as an early signal that Stripe viewed agentic commerce not as a distant possibility but as a near-term engineering challenge that developers are already working to solve.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The announcement of the Agentic Commerce Protocol with OpenAI further elevated Stripe's profile in this emerging space. Industry analysts have characterized the ACP collaboration as one of the most significant partnerships in the payments industry in recent years, comparable in strategic importance to Stripe's earlier integration deals with major e-commerce platforms. The protocol has attracted endorsements and compatibility commitments from companies spanning payments, retail, and AI, suggesting that Stripe's infrastructure-level approach — building the rails rather than the agents themselves — resonates with the broader market's need for interoperable standards.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Looking forward, Stripe is expected to continue expanding its agentic commerce suite with additional tools for fraud prevention in agent-driven transactions, enhanced support for subscription and recurring payment patterns initiated by agents, and deeper integrations with AI development frameworks. The company's ACP-ready status and global payment processing capabilities position it as a foundational infrastructure provider for the agent-driven economy. As more AI platforms launch consumer-facing agents capable of making purchases, Stripe's early investment in agent-optimized payment infrastructure and open protocol development gives it a significant first-mover advantage in capturing the payment volume that agentic commerce is expected to generate in the coming years.
+      </p>
+    </section>
+
+    <FAQ items={faqItems} />
+    <RelatedCompanies companies={relatedCompanies} />
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

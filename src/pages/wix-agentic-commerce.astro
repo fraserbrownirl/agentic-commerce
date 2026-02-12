@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedCompanies from '../components/RelatedCompanies.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = "Wix Agentic Commerce — Building Agent-Ready Websites";
+const description = "How Wix is preparing for agentic commerce. Wix's PayPal integration and tools for making websites accessible to AI shopping agents.";
+const canonical = "https://agentic.commerce/wix-agentic-commerce";
+const lastUpdated = "2026-02-12";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "Wix", url: canonical },
+];
+
+const faqItems = [
+  { question: "How is Wix adapting to agentic commerce?", answer: "Wix is adapting to agentic commerce by building AI-powered website creation tools that make storefronts naturally accessible to AI shopping agents. Through its partnership with PayPal, Wix is integrating agent-ready checkout flows and ensuring that product catalogs are structured in formats that AI agents can easily parse and transact with." },
+  { question: "What is Wix's PayPal agentic commerce integration?", answer: "Wix's PayPal integration enables merchants to offer agent-ready payment processing on their Wix-built websites. This integration allows AI agents to discover products, add items to carts, and complete secure PayPal-processed payments without human intervention, making Wix storefronts part of the growing agentic commerce ecosystem." },
+];
+
+const relatedCompanies = [
+  { name: "PayPal", slug: "paypal-agentic-commerce" },
+  { name: "Shopify", slug: "shopify-agentic-commerce" },
+  { name: "Cloudflare", slug: "cloudflare-agentic-commerce" },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": "2026-02-12",
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: {lastUpdated}</p>
+    <h1 class="text-4xl font-bold mb-6">Wix Agentic Commerce</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Wix's Agentic Commerce Strategy</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Wix has emerged as a significant player in the agentic commerce landscape by leveraging its position as one of the world's most widely used website building platforms. With hundreds of millions of websites created on its infrastructure, Wix occupies a unique vantage point in the shift toward AI-driven commerce: it controls the storefront layer where AI shopping agents must ultimately interact with product catalogs, pricing data, and checkout flows. The company's agentic commerce strategy centers on ensuring that the millions of small and mid-sized businesses building on Wix can participate in the agent economy without requiring deep technical expertise or costly custom integrations. Rather than building its own AI agents, Wix has focused on making its websites inherently agent-accessible — structuring product data, metadata, and transactional endpoints so that third-party AI agents can navigate, interpret, and transact on Wix-powered storefronts as effectively as a human shopper would.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Central to this strategy is Wix's investment in AI-powered website creation tools that produce storefronts optimized for both human visitors and autonomous agents. The platform's AI site builder generates pages with clean semantic markup, structured product data, and machine-readable metadata by default, reducing the gap between a visually appealing consumer-facing website and one that AI agents can programmatically parse. Wix has also introduced features that allow merchants to define product attributes, availability rules, and shipping parameters in standardized formats that align with emerging agent commerce protocols. This dual-audience design philosophy — building for humans and agents simultaneously — reflects Wix's recognition that agentic commerce will not replace traditional e-commerce overnight, but will instead coexist alongside it, requiring storefronts that serve both audiences seamlessly.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Wix's strategic advantage lies in its massive installed base and its democratized approach to web development. While enterprise-focused platforms like Shopify and Salesforce Commerce Cloud also pursue agentic readiness, Wix caters predominantly to small businesses, solopreneurs, and creators who may lack the resources to hire developers or implement custom agent integrations. By embedding agent-readiness directly into its platform's default outputs, Wix ensures that even a first-time merchant using a drag-and-drop editor produces a storefront that AI agents can discover and transact with. This bottom-up approach has the potential to bring a vast long-tail of merchants into the agentic commerce ecosystem far more quickly than top-down enterprise solutions alone.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Wix Agentic Commerce Partnerships</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Wix's most prominent agentic commerce partnership to date is its collaboration with PayPal, which addresses one of the most critical friction points in agent-driven transactions: secure payment processing. The PayPal integration enables Wix merchants to offer agent-ready checkout flows that allow AI shopping agents to authenticate users, select payment methods, and complete purchases through PayPal's infrastructure without requiring manual human steps. This is a meaningful advancement because payment processing has historically been one of the most tightly controlled and human-centric elements of online commerce, requiring CAPTCHA verifications, multi-step authentication, and manual form completion that are fundamentally incompatible with autonomous agent behavior. By partnering with PayPal, Wix gains access to a payment layer that has already been architected for agentic interactions, including tokenized credentials, agent-compatible authentication flows, and fraud detection models calibrated for machine-initiated transactions.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Beyond PayPal, Wix's partnership strategy extends to the broader ecosystem of tools and services that its merchants rely upon. The company has invested in ensuring that its app marketplace — which includes hundreds of third-party integrations for shipping, inventory management, marketing automation, and customer service — evolves to support agent-driven workflows. When an AI agent places an order on a Wix storefront, the downstream processes of inventory deduction, shipping label generation, and order confirmation need to function without human triggers. Wix has been working with its app ecosystem partners to standardize webhook-based event flows and API contracts that allow these post-purchase processes to execute autonomously, creating an end-to-end agent-compatible commerce pipeline from product discovery through fulfillment.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Wix's partnership approach also reflects its recognition that agentic commerce will require interoperability across platforms and protocols. The company has signaled its intent to support the Agentic Commerce Protocol being developed by Stripe, OpenAI, and other industry participants, which would allow AI agents operating across different platforms to interact with Wix storefronts using standardized discovery, negotiation, and payment interfaces. For Wix's merchant base, this protocol compatibility means that their storefronts will be accessible not only to agents built for the Wix ecosystem specifically, but to any ACP-compliant agent regardless of its origin platform — significantly expanding the addressable market for agent-driven sales.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Wix Agentic Commerce News</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Wix's entry into the agentic commerce conversation has accelerated considerably since the broader industry began coalescing around agent-ready standards in late 2024 and early 2025. The company's PayPal agentic commerce integration was among the first concrete demonstrations of how a website building platform could bridge the gap between AI agents and small-business storefronts, drawing attention from industry analysts who had previously focused primarily on enterprise-scale agentic initiatives from companies like Shopify, Stripe, and Amazon. Wix's approach was notable because it prioritized accessibility and simplicity over technical sophistication, reflecting the company's core value proposition of enabling non-technical users to participate in advanced digital commerce trends without hiring developers or learning to write code.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        In recent months, Wix has continued to expand its AI capabilities beyond storefront readiness for external agents. The company has enhanced its AI website builder with features that allow merchants to generate product descriptions, optimize SEO metadata, and configure shipping rules using natural language prompts — capabilities that indirectly support agentic commerce by ensuring that merchant storefronts contain the structured, high-quality data that AI agents need to make accurate purchasing decisions on behalf of consumers. Wix has also introduced analytics dashboards that help merchants understand how much of their traffic and revenue originates from AI agents versus human visitors, providing early visibility into the shifting composition of their customer base as agentic commerce adoption grows.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Looking forward, Wix's agentic commerce roadmap is expected to include deeper integrations with major AI platforms, expanded support for agent authentication and permissioning frameworks, and new merchant tools that allow businesses to define agent-specific pricing rules, promotional offers, and negotiation parameters. The company's scale — powering storefronts for millions of merchants across virtually every product category and geography — positions it as a critical infrastructure provider in the agentic commerce ecosystem. As AI shopping agents become more prevalent and capable, the readiness of the merchant long tail will likely determine how quickly agentic commerce moves from early-adopter novelty to mainstream purchasing channel, and Wix's platform-level investments in agent accessibility place it at the center of that transition.
+      </p>
+    </section>
+
+    <FAQ items={faqItems} />
+    <RelatedCompanies companies={relatedCompanies} />
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

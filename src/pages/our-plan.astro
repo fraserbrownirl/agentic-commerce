@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const title = "Our Plan — The Agentic Commerce Aggregator Thesis | Agentic Commerce";
+const description = "Why the agentic commerce landscape needs a meta-layer: cross-agent arbitrage, protocol normalization, and agent reputation systems.";
+const canonical = "https://agentic.commerce/our-plan";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "Our Plan", url: canonical },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": "2026-02-12",
+    "dateModified": "2026-02-12",
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd}>
+  <div class="mx-auto max-w-3xl px-6 py-16">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="mb-12">
+      <h1 class="text-4xl font-black leading-tight tracking-tight md:text-5xl">
+        Our Plan
+      </h1>
+      <p class="mt-4 text-lg text-muted-foreground leading-relaxed">
+        The case for a meta-layer in agentic commerce.
+      </p>
+    </header>
+
+    <article class="space-y-10 text-foreground leading-relaxed">
+      <!-- Section 1: Three Models -->
+      <section>
+        <h2 class="text-2xl font-bold tracking-tight mb-4">
+          Three Models for Agentic Commerce
+        </h2>
+        <p class="text-muted-foreground leading-relaxed">
+          There are three models for agentic commerce:
+          <strong class="text-foreground">agent-to-site</strong>,
+          <strong class="text-foreground">agent-to-agent</strong>, and
+          <strong class="text-foreground">brokered agent-to-site</strong>
+          — and that third one (brokered) is essentially what we're building.
+        </p>
+        <p class="mt-4 text-muted-foreground leading-relaxed">
+          In 2025, nearly every major retailer and AI incumbent entered the race —
+          Amazon expanded Rufus, OpenAI embedded checkout in ChatGPT, Perplexity
+          rolled out an AI-powered browser, plus niche startups like
+          <strong class="text-foreground">Phia</strong> (price-comparison from Phoebe Gates) and
+          <strong class="text-foreground">OneOff</strong> (celebrity-look recommendations)
+          are targeting specific shopping use cases. Everyone is building their own silo.
+        </p>
+      </section>
+
+      <!-- Section 2: Protocol Landscape -->
+      <section>
+        <h2 class="text-2xl font-bold tracking-tight mb-4">
+          The Protocol Landscape Is Screaming for a Meta-Layer
+        </h2>
+        <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <p>
+            Open-source protocols like
+            <span class="font-semibold text-accent">MCP</span>,
+            <span class="font-semibold text-accent">A2A</span>,
+            <span class="font-semibold text-accent">AP2</span>,
+            <span class="font-semibold text-accent">ACP</span>, and
+            <span class="font-semibold text-accent">UCP</span>
+            now enable agents to read data, negotiate with other agents, and transact safely.
+          </p>
+          <p>
+            Google and Shopify co-developed
+            <strong class="text-foreground">UCP</strong> as an open standard,
+            endorsed by 20+ retailers including Target, Walmart, Visa, Stripe, and Mastercard.
+          </p>
+          <p>
+            PayPal launched its own "agent ready" and "store sync" agentic commerce services.
+          </p>
+          <p class="font-medium text-foreground italic border-l-2 border-accent pl-4">
+            That's a ton of fragmented rails that consumers won't navigate themselves.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 3: Why a Wrapper Wins -->
+      <section>
+        <h2 class="text-2xl font-bold tracking-tight mb-4">
+          Why a Wrapper / Aggregator Wins
+        </h2>
+        <div class="space-y-6">
+          <div class="rounded-sm border border-border bg-card p-5">
+            <h3 class="font-sans text-sm font-semibold uppercase tracking-widest text-accent mb-2">
+              Cross-Agent Arbitrage
+            </h3>
+            <p class="text-muted-foreground leading-relaxed">
+              ChatGPT shopping finds different deals than Perplexity or Google AI Mode.
+              An aggregator queries all of them and surfaces the best result.
+            </p>
+          </div>
+
+          <div class="rounded-sm border border-border bg-card p-5">
+            <h3 class="font-sans text-sm font-semibold uppercase tracking-widest text-accent mb-2">
+              Protocol Normalization
+            </h3>
+            <p class="text-muted-foreground leading-relaxed">
+              UCP, AP2, ACP are all different standards. Someone needs to abstract that
+              complexity away from the consumer.
+            </p>
+          </div>
+
+          <div class="rounded-sm border border-border bg-card p-5">
+            <h3 class="font-sans text-sm font-semibold uppercase tracking-widest text-accent mb-2">
+              Agent Reputation &amp; Trust
+            </h3>
+            <p class="text-muted-foreground leading-relaxed">
+              This is where it connects directly to
+              <strong class="text-foreground">Moltbook</strong>.
+              "Know your customer" is becoming "know your agent" — every transaction
+              will need proof that an AI truly represents its user.
+            </p>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</BaseLayout>

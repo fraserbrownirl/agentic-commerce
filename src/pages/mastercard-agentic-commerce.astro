@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedCompanies from '../components/RelatedCompanies.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = "Mastercard Agentic Commerce — Partnerships, Strategy & News";
+const description = "Mastercard's approach to agentic commerce. Covering the Mastercard and PayPal agentic commerce partnership and AI payment initiatives.";
+const canonical = "https://agentic.commerce/mastercard-agentic-commerce";
+const lastUpdated = "2026-02-12";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "Mastercard", url: canonical },
+];
+
+const faqItems = [
+  { question: "What is Mastercard Agent Pay?", answer: "Mastercard Agent Pay is a purpose-built payment system launched in January 2025 that enables AI agents to securely initiate and complete transactions on behalf of consumers. Agent Pay leverages Mastercard's tokenization network and biometric authentication framework to verify both the identity of the human principal and the authorization of the AI agent, allowing autonomous purchases while maintaining the security and fraud prevention standards Mastercard is known for." },
+  { question: "What is the Mastercard and PayPal agentic commerce partnership?", answer: "Mastercard and PayPal have formed a strategic partnership to create interoperable infrastructure for AI agent payments. The collaboration combines Mastercard's Agent Pay technology and global payment network with PayPal's digital wallet ecosystem and merchant relationships. Together, they are developing shared standards for agent authentication, transaction authorization, and consumer protection that aim to accelerate the adoption of agentic commerce across both platforms." },
+];
+
+const relatedCompanies = [
+  { name: "Visa", slug: "visa-agentic-commerce" },
+  { name: "PayPal", slug: "paypal-agentic-commerce" },
+  { name: "Klarna", slug: "klarna-agentic-commerce" },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": "2026-02-12",
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: {lastUpdated}</p>
+    <h1 class="text-4xl font-bold mb-6">Mastercard Agentic Commerce</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Mastercard's Agentic Commerce Strategy</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Mastercard has emerged as one of the most aggressive movers in the agentic commerce space, launching its dedicated Agent Pay platform in January 2025 — making it one of the first major payment networks to ship a production-ready system specifically designed for AI agent transactions. Mastercard's strategy is built on the conviction that AI agents will become a primary commerce interface within the next several years, and that the payment networks that establish trust, security, and interoperability standards early will define the market. Agent Pay is not a standalone product but rather a comprehensive extension of Mastercard's existing payment infrastructure, embedding agent authentication, authorization, and transaction monitoring capabilities into the same network that already processes billions of transactions annually for consumers and merchants worldwide.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The technical architecture of Agent Pay reflects Mastercard's emphasis on security-first design. Every agent-initiated transaction passes through a multi-layered verification process that confirms the identity of the consumer who delegated authority, validates the agent's credentials and permissions, and applies real-time risk scoring based on transaction context, agent behavior history, and merchant profile. Mastercard has integrated its biometric authentication capabilities into the Agent Pay framework, allowing consumers to use fingerprint or facial recognition to approve high-value agent transactions or to establish spending policies that govern what their agents can do autonomously. This approach addresses the fundamental tension in agentic commerce between convenience and control — consumers want their AI agents to act independently enough to be useful, but they also want assurance that no transaction will occur without appropriate authorization. Mastercard's strategy also includes a robust developer ecosystem, with Agent Pay APIs, SDKs, and sandbox environments that allow AI platform developers to integrate payment capabilities into their agents with minimal friction, accelerating time-to-market for agentic commerce applications.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Mastercard Agentic Commerce Partnerships</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Mastercard's partnership strategy for agentic commerce has been among the most visible in the industry, headlined by its high-profile collaboration with PayPal. Announced in early 2025, the Mastercard-PayPal agentic commerce partnership combines Mastercard's Agent Pay infrastructure and global network reach with PayPal's massive digital wallet user base and deep merchant integrations. The partnership focuses on creating shared standards for how AI agents authenticate with payment systems, how transaction authorization flows work across platforms, and how consumer protections like dispute resolution and chargebacks apply to agent-initiated purchases. By aligning on these foundational elements, Mastercard and PayPal aim to prevent the fragmentation that could occur if every platform develops its own proprietary approach to agentic payments.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Beyond PayPal, Mastercard has established partnerships with several leading AI development platforms to embed Agent Pay capabilities directly into the tools that developers use to build AI agents. These integrations mean that when a developer creates an AI agent on a supported platform, payment functionality through the Mastercard network is available as a native capability rather than a complex third-party integration. Mastercard has also partnered with major enterprise software companies to bring agentic commerce capabilities into business-to-business procurement workflows, where AI agents can autonomously source, negotiate, and purchase supplies within parameters set by procurement teams. On the standards front, Mastercard has been a founding participant in multiple industry consortiums working to define interoperability protocols for agentic commerce, including collaborations with competing networks like Visa on shared security frameworks. The company has also engaged with regulatory bodies across North America, Europe, and Asia-Pacific to help shape the emerging legal and compliance frameworks for autonomous agent transactions, ensuring that Agent Pay meets or exceeds requirements in every market where Mastercard operates. These partnerships collectively reflect Mastercard's understanding that agentic commerce is an ecosystem challenge that no single company can solve alone.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Mastercard Agentic Commerce News</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Mastercard's agentic commerce journey has been marked by a steady cadence of announcements since the launch of Agent Pay in January 2025. The initial launch garnered significant attention from both the payments industry and the broader AI community, as it represented the first time a major payment network had released a dedicated product for AI agent transactions. In the months following the launch, Mastercard announced the results of pilot programs conducted with select retailers and AI platforms, reporting high transaction success rates and low fraud incidence — metrics that validated the Agent Pay architecture's readiness for scale deployment. The Mastercard-PayPal partnership announcement in early 2025 was widely covered by financial and technology media, with analysts describing it as a signal that the payments industry was taking agentic commerce seriously and moving beyond theoretical discussions into concrete infrastructure development.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Throughout the second half of 2025, Mastercard expanded Agent Pay's capabilities with several product updates, including support for recurring agent-initiated subscriptions, multi-currency agent transactions, and enhanced spending controls that allow consumers to set dynamic limits based on context rather than fixed thresholds. The company also announced the opening of dedicated agentic commerce innovation labs in New York, London, and Singapore, signaling its intent to lead research and development in this space globally. In late 2025, Mastercard published its annual Digital Payments Report, which for the first time included a dedicated section on agentic commerce, projecting significant growth in agent-initiated transaction volume over the coming years. As of early 2026, Mastercard continues to build momentum, with reports indicating that the company is preparing additional partnership announcements and product capabilities that will further extend Agent Pay's reach across both consumer and enterprise use cases. The company's CEO has described agentic commerce as one of the most significant opportunities in the history of digital payments, a framing that suggests Mastercard will continue to invest aggressively in this category for the foreseeable future.
+      </p>
+    </section>
+
+    <FAQ items={faqItems} />
+    <RelatedCompanies companies={relatedCompanies} />
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

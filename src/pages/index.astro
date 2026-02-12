@@ -1,0 +1,251 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQ from '../components/FAQ.astro';
+import { articles } from '../data/articles';
+
+const title = "Agentic Commerce — The Definitive Guide to AI-Powered Commerce";
+const description = "What is agentic commerce? The complete guide to how AI agents are transforming payments, shopping, and digital transactions.";
+const canonical = "https://agentic.commerce/";
+
+const homepageFAQ = [
+  {
+    question: 'What is agentic commerce?',
+    answer: 'Agentic commerce is the emerging trend where AI agents conduct commercial transactions on behalf of users. Instead of manually browsing and purchasing, AI assistants autonomously discover products, evaluate options, negotiate prices, and complete purchases based on user preferences and instructions.',
+  },
+  {
+    question: 'How do AI agents work in agentic commerce?',
+    answer: 'AI agents use natural language processing, machine learning, and decision-making algorithms to understand user needs, search across commerce platforms, evaluate products and services, and execute transactions securely. They integrate with APIs from payment processors, retailers, and service providers to complete seamless transactions.',
+  },
+  {
+    question: 'What is the Agentic Commerce Protocol (ACP)?',
+    answer: 'The Agentic Commerce Protocol is a standardized framework designed to ensure interoperability and security across agentic commerce platforms. It enables AI agents from different companies to seamlessly integrate with payment providers, retailers, and other commerce infrastructure while maintaining data privacy and transaction integrity.',
+  },
+  {
+    question: 'Which companies are leading the agentic commerce movement?',
+    answer: 'Major players include payment processors (PayPal, Stripe, Visa, Mastercard), e-commerce platforms (Shopify, BigCommerce), AI companies (OpenAI, Google, Anthropic), and infrastructure providers (Cloudflare, Amazon). Each plays a critical role in building the agentic commerce ecosystem.',
+  },
+  {
+    question: 'Is agentic commerce secure?',
+    answer: 'Security in agentic commerce depends on strong encryption, secure APIs, compliance with data protection regulations, and robust authentication. The Agentic Commerce Protocol includes security standards that participating companies must meet, and transactions are protected by the same security measures as traditional e-commerce.',
+  },
+];
+
+const paymentCompanies = [
+  { name: 'PayPal', slug: 'paypal-agentic-commerce' },
+  { name: 'Stripe', slug: 'stripe-agentic-commerce' },
+  { name: 'Visa', slug: 'visa-agentic-commerce' },
+  { name: 'Mastercard', slug: 'mastercard-agentic-commerce' },
+  { name: 'Klarna', slug: 'klarna-agentic-commerce' },
+];
+
+const platformCompanies = [
+  { name: 'Shopify', slug: 'shopify-agentic-commerce' },
+  { name: 'Wix', slug: 'wix-agentic-commerce' },
+  { name: 'Cloudflare', slug: 'cloudflare-agentic-commerce' },
+];
+
+const aiCompanies = [
+  { name: 'OpenAI', slug: 'openai-agentic-commerce-protocol' },
+  { name: 'Google', slug: 'google-agentic-commerce' },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Agentic Commerce",
+    "url": "https://agentic.commerce/",
+    "description": description,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": homepageFAQ.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <div class="mx-auto max-w-4xl px-6 py-16 space-y-16">
+    <!-- Hero Section -->
+    <article>
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6">
+        What Is Agentic<br />
+        <span class="text-accent">Commerce?</span>
+      </h1>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+        The definitive guide to how AI agents are transforming commercial transactions. Autonomous agents now discover products, compare prices, negotiate deals, and complete purchases on your behalf — ushering in a new era of effortless commerce.
+      </p>
+    </article>
+
+    <!-- Definition Section -->
+    <section class="space-y-6">
+      <div>
+        <h2 class="text-3xl font-bold mb-4">Agentic Commerce Definition</h2>
+        <p class="text-base leading-relaxed text-muted-foreground mb-4">
+          Agentic commerce refers to the practice of autonomous AI agents conducting commercial transactions on behalf of users. Rather than manually visiting websites, searching for products, comparing prices, and clicking "buy," users set preferences and let AI agents handle the entire purchasing process independently.
+        </p>
+        <p class="text-base leading-relaxed text-muted-foreground mb-4">
+          These agents integrate with payment processors, e-commerce platforms, and service providers through standardized APIs. They understand natural language instructions, learn user preferences, evaluate options based on criteria like price and quality, and execute transactions securely and efficiently.
+        </p>
+        <p class="text-base leading-relaxed text-muted-foreground">
+          Agentic commerce is not a distant future concept — it's already emerging. Companies like PayPal, Stripe, Shopify, OpenAI, and Google are actively building the infrastructure and protocols that make autonomous commerce possible at scale.
+        </p>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="space-y-6">
+      <h2 class="text-3xl font-bold">How Agentic Commerce Works</h2>
+      <div class="space-y-4">
+        <div>
+          <h3 class="text-lg font-semibold mb-2">1. User Intent</h3>
+          <p class="text-muted-foreground">
+            Users communicate their needs to an AI agent using natural language. Instead of "I need running shoes under $150," they can say, "Find me comfortable running shoes, check reviews, compare prices, and buy the best deal."
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">2. Search &amp; Evaluation</h3>
+          <p class="text-muted-foreground">
+            The AI agent searches across multiple retailers and platforms, evaluates options based on user criteria (price, quality, brand, shipping, reviews), and narrows down selections to the best matches.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">3. Decision &amp; Negotiation</h3>
+          <p class="text-muted-foreground">
+            Using learned user preferences and decision-making logic, the agent may negotiate prices, apply discounts, or suggest alternatives. It prioritizes outcomes that match the user's explicit and implicit preferences.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">4. Secure Transaction</h3>
+          <p class="text-muted-foreground">
+            Once a purchase is approved, the agent securely processes the payment through integrated payment processors, completes checkout, and confirms the order. All transactions are encrypted and comply with data protection standards.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">5. Post-Purchase Management</h3>
+          <p class="text-muted-foreground">
+            The agent tracks orders, manages returns, handles customer service inquiries, and updates the user on delivery status. It may even proactively offer refunds if prices drop after purchase.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Protocol Section -->
+    <section class="space-y-6">
+      <h2 class="text-3xl font-bold">The Agentic Commerce Protocol (ACP)</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The Agentic Commerce Protocol is a standardized framework that enables interoperability between AI agents and commerce platforms. It defines how agents authenticate, negotiate with merchants, process payments, and protect user data.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Key aspects of ACP include:
+      </p>
+      <ul class="space-y-2 text-muted-foreground">
+        <li>
+          <strong class="text-foreground">API Standards:</strong> Defines how agents integrate with retailers, payment processors, and service providers.
+        </li>
+        <li>
+          <strong class="text-foreground">Security Requirements:</strong> Ensures encrypted communication, secure authentication, and fraud prevention.
+        </li>
+        <li>
+          <strong class="text-foreground">Data Privacy:</strong> Protects user preferences, transaction history, and payment information through encryption and access controls.
+        </li>
+        <li>
+          <strong class="text-foreground">Compliance:</strong> Meets regulatory requirements for financial transactions, consumer protection, and cross-border commerce.
+        </li>
+        <li>
+          <strong class="text-foreground">Interoperability:</strong> Enables agents from different companies to work with merchants from different platforms seamlessly.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Key Players Section -->
+    <section class="space-y-8">
+      <h2 class="text-3xl font-bold">Key Players in Agentic Commerce</h2>
+
+      <!-- Payment Companies -->
+      <div class="space-y-4">
+        <h3 class="text-2xl font-semibold text-accent">Payment Processors</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          {paymentCompanies.map((company) => (
+            <a
+              href={`/${company.slug}`}
+              class="p-4 border border-border rounded-lg hover:border-accent transition-colors group"
+            >
+              <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">{company.name}</p>
+              <p class="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                Explore {company.name}'s agentic commerce strategy &rarr;
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Platform Companies -->
+      <div class="space-y-4">
+        <h3 class="text-2xl font-semibold text-accent">E-Commerce Platforms</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          {platformCompanies.map((company) => (
+            <a
+              href={`/${company.slug}`}
+              class="p-4 border border-border rounded-lg hover:border-accent transition-colors group"
+            >
+              <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">{company.name}</p>
+              <p class="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                Explore {company.name}'s agentic commerce strategy &rarr;
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- AI Companies -->
+      <div class="space-y-4">
+        <h3 class="text-2xl font-semibold text-accent">AI Platforms</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          {aiCompanies.map((company) => (
+            <a
+              href={`/${company.slug}`}
+              class="p-4 border border-border rounded-lg hover:border-accent transition-colors group"
+            >
+              <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">{company.name}</p>
+              <p class="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                Explore {company.name}'s agentic commerce strategy &rarr;
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="space-y-6">
+      <h2 class="text-3xl font-bold">Agentic Commerce News</h2>
+      <div class="space-y-0 divide-y divide-border">
+        {articles.slice(0, 6).map((article) => (
+          <a
+            href={`/company/${article.slug}`}
+            class="block py-4 group hover:bg-muted/30 -mx-4 px-4 transition-colors"
+          >
+            <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-1">{article.companyName}</p>
+            <h3 class="text-sm font-semibold group-hover:text-accent transition-colors">{article.headline}</h3>
+            <p class="text-xs text-muted-foreground mt-1 line-clamp-1">{article.summary}</p>
+          </a>
+        ))}
+      </div>
+      <a href="/our-plan" class="text-sm text-accent hover:underline underline-offset-4">
+        View our plan &rarr;
+      </a>
+    </section>
+
+    <!-- FAQ Section -->
+    <FAQ items={homepageFAQ} />
+  </div>
+</BaseLayout>

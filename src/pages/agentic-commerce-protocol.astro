@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedCompanies from '../components/RelatedCompanies.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = "Agentic Commerce Protocol (ACP) — What It Is & How It Works";
+const description = "The Agentic Commerce Protocol explained. How ACP by Stripe and OpenAI enables AI agents to discover, negotiate, and complete purchases autonomously.";
+const canonical = "https://agentic.commerce/agentic-commerce-protocol";
+const lastUpdated = "2026-02-12";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "ACP Protocol", url: canonical },
+];
+
+const faqItems = [
+  { question: "What is the Agentic Commerce Protocol (ACP)?", answer: "The Agentic Commerce Protocol is a standardized framework co-developed by Stripe and OpenAI that enables AI agents to discover products, negotiate with merchants, process payments, and complete purchases autonomously. It defines API standards, security requirements, and interoperability rules that allow agents from different platforms to transact seamlessly across the commerce ecosystem." },
+  { question: "Who created the Agentic Commerce Protocol?", answer: "The ACP was co-created by Stripe and OpenAI. Stripe provides the payment infrastructure and merchant integration layer, while OpenAI contributes the AI agent capabilities and natural language processing. The protocol has since gained adoption from over 45 companies across payments, e-commerce, fintech, and AI sectors." },
+  { question: "How does ACP differ from other commerce protocols?", answer: "Unlike traditional payment protocols that handle only transaction processing, ACP spans the entire agent commerce lifecycle — from product discovery and price negotiation to payment execution and post-purchase management. It also incorporates agent authentication and trust frameworks that are unique to AI-to-commerce interactions." },
+];
+
+const relatedCompanies = [
+  { name: "Stripe", slug: "stripe-agentic-commerce" },
+  { name: "OpenAI", slug: "openai-agentic-commerce-protocol" },
+  { name: "Visa", slug: "visa-agentic-commerce" },
+  { name: "Mastercard", slug: "mastercard-agentic-commerce" },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": "2026-02-12",
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: {lastUpdated}</p>
+    <h1 class="text-4xl font-bold mb-6">Agentic Commerce Protocol (ACP)</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">What Is the Agentic Commerce Protocol?</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The Agentic Commerce Protocol, commonly referred to as ACP, is a standardized framework that defines how AI agents discover products, negotiate terms, process payments, and complete purchases across the digital commerce ecosystem. Co-developed by Stripe and OpenAI, ACP represents the first comprehensive attempt to establish a universal set of rules governing autonomous agent-to-merchant and agent-to-agent commercial interactions. Unlike traditional payment protocols such as ISO 20022 or the card network messaging standards maintained by Visa and Mastercard — which focus narrowly on transaction processing and settlement — ACP encompasses the entire lifecycle of an agent-driven purchase, from initial product discovery and price comparison through authentication, payment execution, order confirmation, and post-purchase dispute resolution.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The need for a dedicated agentic commerce protocol arose from the rapid proliferation of AI agents capable of performing commercial tasks on behalf of human consumers. As large language models and autonomous agent frameworks matured throughout 2024 and 2025, it became clear that existing commerce infrastructure — designed for human-driven browsing, clicking, and form-filling — created significant friction when AI agents attempted to transact programmatically. Merchants had no standardized way to expose their product catalogs to agents, agents had no reliable method for authenticating themselves or proving they were acting on behalf of authorized users, and payment processors lacked the interfaces necessary to handle machine-initiated transactions at scale. ACP addresses each of these gaps by defining a common language and set of API contracts that all participants in the agentic commerce ecosystem can implement, regardless of their specific technology stack or business model.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        At its core, ACP is designed to be protocol-agnostic at the transport layer, meaning it can operate over standard HTTPS, WebSocket connections, or emerging agent-to-agent communication channels. The protocol specifies data formats for product listings, pricing structures, availability indicators, and shipping options that agents can parse without ambiguity. It also defines a capability negotiation mechanism that allows agents and merchants to establish what actions are supported before initiating a transaction — for example, whether a merchant accepts agent-initiated returns, supports dynamic pricing negotiation, or requires additional identity verification steps beyond standard authentication.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">How ACP Works</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The technical architecture of the Agentic Commerce Protocol is organized around four primary phases: discovery, negotiation, execution, and post-transaction management. In the discovery phase, AI agents query ACP-compliant merchant endpoints to retrieve structured product catalogs, pricing data, and availability information. These endpoints expose machine-readable product feeds that conform to ACP's schema specifications, enabling agents to filter, compare, and rank products across multiple merchants without scraping websites or interpreting unstructured HTML. Merchants register their ACP endpoints through a decentralized discovery registry, which agents can query using standardized search parameters such as product category, price range, geographic availability, and fulfillment speed.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The negotiation phase is one of ACP's most distinctive features and represents a fundamental departure from traditional e-commerce, where prices are typically fixed and displayed to all customers identically. Under ACP, agents can submit purchase intent signals that include parameters such as quantity, delivery timeline, and willingness to accept alternative products, and merchants can respond with tailored offers that reflect real-time inventory levels, demand patterns, and competitive positioning. This negotiation occurs through a structured message exchange defined by the protocol, ensuring that both parties understand the terms being proposed and accepted. The protocol includes safeguards against adversarial negotiation tactics, including rate limiting, offer expiration timestamps, and mandatory disclosure requirements that prevent agents or merchants from misrepresenting product attributes or pricing during the negotiation process.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        During the execution phase, ACP coordinates the payment transaction by interfacing with supported payment processors — Stripe being the primary reference implementation, though the protocol is designed to accommodate any compliant payment provider. The agent submits a finalized order along with a cryptographically signed authorization token that proves the agent is acting on behalf of an authenticated user with a valid payment method. The payment processor validates the token, processes the charge, and returns a confirmation receipt that the agent can relay to the user. Security is enforced through multiple layers, including agent identity certificates issued by trusted registries, user delegation tokens that specify spending limits and product category restrictions, and real-time fraud scoring models that evaluate the risk profile of each agent-initiated transaction. The post-transaction phase covers order tracking, delivery confirmation, returns processing, and dispute resolution, all handled through standardized ACP message flows that allow agents to manage the complete purchase lifecycle without human intervention.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Who Created ACP?</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The Agentic Commerce Protocol was co-created by Stripe and OpenAI, two companies whose complementary capabilities made them natural architects for a standard governing AI-driven commerce. Stripe brought its deep expertise in payment infrastructure, merchant integration, and financial regulatory compliance — the company processes hundreds of billions of dollars in annual transaction volume and maintains relationships with millions of businesses worldwide. OpenAI contributed its leadership in large language model development, AI agent frameworks, and the natural language understanding capabilities that enable agents to interpret product information, communicate with merchants, and make purchasing decisions that align with user preferences. The collaboration between these two organizations reflects a recognition that agentic commerce sits at the intersection of AI capability and financial infrastructure, and that neither domain alone could produce a viable standard.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        While Stripe and OpenAI served as the primary architects, the development of ACP has involved input from a broad coalition of technology companies, payment networks, and e-commerce platforms. Visa and Mastercard contributed expertise on card-network interoperability and transaction security standards, ensuring that ACP's payment flows are compatible with the global card infrastructure that underpins the majority of online commerce. Companies including PayPal, Klarna, Amazon, and Shopify participated in working groups that shaped the protocol's merchant integration specifications, product data schemas, and dispute resolution frameworks. The governance of ACP is structured as an open consortium model, where contributing organizations propose and ratify protocol amendments through a formal review process. This governance structure is designed to prevent any single company from exerting undue control over the protocol's evolution, ensuring that ACP remains a neutral standard that serves the interests of the entire agentic commerce ecosystem rather than favoring specific platforms or business models.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The decision to develop ACP as an open protocol rather than a proprietary standard was deliberate and strategic. Both Stripe and OpenAI recognized that agentic commerce would only achieve mainstream adoption if agents from any platform could transact with merchants using any payment processor, without requiring bilateral integration agreements between every possible agent-merchant pair. By publishing the protocol specification openly and encouraging broad adoption, the creators aimed to establish a network effect where each new ACP-compliant participant increases the value of the ecosystem for all existing participants — a dynamic that has historically driven the adoption of successful internet standards from HTTP to OAuth.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">ACP Ecosystem</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Since its introduction, the Agentic Commerce Protocol has attracted adoption from over 45 companies spanning the payments, e-commerce, fintech, and artificial intelligence sectors. This ecosystem encompasses the full spectrum of participants required for agent-driven commerce to function at scale: AI platform providers that build and host the agents, payment processors that handle financial transactions, e-commerce platforms that power merchant storefronts, card networks that provide global transaction infrastructure, and developer tool companies that create the SDKs and integration libraries necessary for practical implementation. The breadth of this ecosystem is significant because agentic commerce, by its nature, requires coordination across multiple layers of the technology stack — an agent cannot complete a purchase if the merchant's storefront, the payment processor, and the delivery infrastructure are not all speaking the same protocol language.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Among the most prominent ecosystem participants are Stripe and OpenAI as protocol originators, Visa and Mastercard as payment network adopters, PayPal and Klarna as alternative payment method providers, Shopify and Wix as e-commerce platform integrators, and companies like Perplexity, Sierra, and Cursor as AI application developers building agent-driven commerce experiences. Developer tooling has also emerged as a critical ecosystem layer, with companies providing ACP-compliant SDKs for popular programming languages, testing frameworks that simulate agent-merchant interactions, and monitoring dashboards that track agent transaction volumes, success rates, and error patterns. This tooling ecosystem reduces the integration burden for merchants and agent developers, accelerating the pace at which new participants can join the ACP network and begin transacting.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The ACP ecosystem also includes a growing body of certification and compliance infrastructure. Merchants seeking to advertise ACP compatibility can submit their endpoints for automated conformance testing, which validates that their product feeds, checkout flows, and post-purchase APIs meet the protocol's specifications. Similarly, AI agent developers can certify that their agents adhere to ACP's security requirements, including proper handling of user delegation tokens, adherence to spending limits, and compliance with merchant-specified negotiation rules. This certification layer serves a trust-building function that is essential for the ecosystem's growth, as both consumers and merchants need assurance that agent-initiated transactions are secure, authorized, and reversible when disputes arise.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">The Future of ACP</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The roadmap for the Agentic Commerce Protocol envisions a progression from its current state as a transaction-focused standard toward a comprehensive framework that governs increasingly complex agent commercial behaviors. Near-term priorities include expanding the protocol's coverage of subscription commerce, recurring payment management, and multi-party transactions where a single agent coordinates purchases across several merchants to fulfill a complex user request — such as planning an entire vacation including flights, hotels, and activities from different providers. The protocol's working groups are also developing specifications for agent reputation systems that would allow merchants to differentiate between well-established, trustworthy agents and newly created or poorly rated ones, enabling dynamic risk-based pricing and access controls that reflect the agent's track record.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Industry adoption of ACP is expected to accelerate as AI agents become more capable and as consumer willingness to delegate purchasing decisions to autonomous software grows. Analysts project that agent-initiated transactions could account for a meaningful percentage of global e-commerce volume within the next several years, driven by use cases ranging from routine household replenishment and price-optimized bulk purchasing to complex procurement workflows in enterprise settings. The protocol's open governance model is designed to accommodate this growth by allowing new use cases and transaction types to be added through community-driven proposals without requiring centralized approval from Stripe or OpenAI. This extensibility is critical because the range of commercial activities that agents will eventually perform is likely to expand well beyond simple product purchases to include services procurement, financial product comparison, insurance purchasing, and real estate transactions.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Challenges remain, however, particularly around regulatory compliance, consumer protection, and liability assignment. When an AI agent makes a purchase that a consumer later disputes, existing chargeback and refund frameworks were not designed to account for the presence of an autonomous intermediary. ACP's governance bodies are working with financial regulators and consumer protection agencies to develop clear rules around agent liability, disclosure requirements, and dispute resolution procedures that protect consumers without creating regulatory barriers that stifle innovation. Cross-border commerce presents additional complexity, as different jurisdictions maintain different rules around consumer rights, data privacy, and financial transaction reporting. The protocol's future success will depend not only on its technical merits but also on its ability to navigate this regulatory landscape and establish itself as a trusted standard that regulators, merchants, and consumers alike can rely upon as agentic commerce reshapes the global retail economy.
+      </p>
+    </section>
+
+    <FAQ items={faqItems} />
+    <RelatedCompanies companies={relatedCompanies} />
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

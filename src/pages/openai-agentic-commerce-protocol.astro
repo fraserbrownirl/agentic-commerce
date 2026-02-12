@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedCompanies from '../components/RelatedCompanies.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = "OpenAI Agentic Commerce Protocol — ACP Explained";
+const description = "OpenAI's agentic commerce protocol (ACP) with Stripe. How OpenAI is enabling AI agents to transact, buy, and pay autonomously.";
+const canonical = "https://agentic.commerce/openai-agentic-commerce-protocol";
+const lastUpdated = "2026-02-12";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "OpenAI", url: canonical },
+];
+
+const faqItems = [
+  { question: "What is OpenAI's Agentic Commerce Protocol (ACP)?", answer: "The Agentic Commerce Protocol is a standard co-developed by OpenAI and Stripe that defines how AI agents discover, negotiate, and complete commercial transactions. ACP provides specifications for agent authentication, product discovery, payment initiation, and order confirmation, enabling any ACP-compatible agent to transact with any ACP-compatible merchant or payment provider." },
+  { question: "How does OpenAI Operator use agentic commerce?", answer: "OpenAI's Operator agent, launched in January 2025, is designed to perform real-world tasks on behalf of users, including shopping and purchasing. Operator can browse websites, evaluate products, and complete checkout flows autonomously. With ACP integration, Operator can conduct these transactions using standardized protocols that ensure security, interoperability, and a consistent experience across different merchants and payment providers." },
+  { question: "Which companies support OpenAI's Agentic Commerce Protocol?", answer: "ACP has gained support from major companies across payments, e-commerce, and AI. Stripe is the co-developer and primary payments infrastructure partner. Other companies that have signaled ACP readiness or compatibility include PayPal, Visa, Mastercard, Shopify, and Google, reflecting broad industry alignment around the need for standardized agent-driven commerce infrastructure." },
+];
+
+const relatedCompanies = [
+  { name: "Stripe", slug: "stripe-agentic-commerce" },
+  { name: "ACP Protocol", slug: "agentic-commerce-protocol" },
+  { name: "Google", slug: "google-agentic-commerce" },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": "2026-02-12",
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: {lastUpdated}</p>
+    <h1 class="text-4xl font-bold mb-6">OpenAI Agentic Commerce Protocol</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">What Is the Agentic Commerce Protocol?</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The Agentic Commerce Protocol, commonly known as ACP, is an open standard co-developed by OpenAI and Stripe that defines how AI agents conduct commercial transactions across the internet. The protocol emerged from a recognition that as AI agents become increasingly capable of performing real-world tasks — from booking travel to purchasing groceries — the absence of a shared transactional standard would create fragmentation, security vulnerabilities, and interoperability barriers that could slow adoption of agent-driven commerce. ACP addresses this gap by establishing a common set of interfaces, data formats, and interaction patterns that any AI agent can use to discover products, authenticate users, initiate payments, and confirm orders with any compatible merchant or payment provider.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        At a technical level, ACP specifies how agents identify themselves to commerce infrastructure, how they negotiate on behalf of users without exposing sensitive credentials, and how they handle the multi-step workflows inherent in online transactions — including tax calculation, shipping selection, coupon application, and payment authorization. The protocol is designed to be transport-agnostic and framework-independent, meaning it can function over standard HTTP APIs, message queues, or other communication channels, and it does not require agents to be built on any specific AI platform. This openness is a deliberate design choice intended to prevent vendor lock-in and encourage broad ecosystem participation.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The significance of ACP extends beyond its technical specifications. By establishing a protocol-level standard, OpenAI and Stripe are effectively proposing the foundational grammar for a new economic layer in which software agents, rather than human consumers, are the primary transaction initiators. If widely adopted, ACP could do for agent-driven commerce what HTTP did for the web or what SMTP did for email: provide the invisible infrastructure that enables a vast, interoperable ecosystem to function without centralized coordination. Early signals suggest the protocol is gaining meaningful traction, with major companies across payments, retail, and AI signaling compatibility or active integration.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">OpenAI and Stripe ACP Partnership</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The partnership between OpenAI and Stripe on the Agentic Commerce Protocol represents one of the most strategically important collaborations in the intersection of artificial intelligence and financial technology. OpenAI brings the agent side of the equation — its large language models power some of the most capable AI agents in the world, including the Operator agent launched in January 2025 — while Stripe brings the commerce infrastructure, including global payment processing in over 135 currencies, fraud detection, and merchant tooling. Together, they have the technical depth and market reach to establish ACP as a de facto industry standard rather than a niche specification.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        OpenAI's motivation for co-developing ACP is closely tied to the capabilities and ambitions of its Operator agent. Operator was designed to perform complex, multi-step tasks on behalf of users, and shopping is among the most commercially significant of those tasks. However, without a standardized way to handle payments, each agent-merchant integration would require custom engineering, creating a scaling bottleneck that would limit Operator's utility. ACP removes this bottleneck by providing a universal payment interface that Operator — and any future OpenAI agent — can use to transact with any ACP-compatible merchant. This dramatically expands the range of commercial actions Operator can perform while reducing the per-integration engineering cost.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        From Stripe's perspective, the partnership ensures that the company's payment rails are embedded at the protocol level of agentic commerce. As AI agents from OpenAI and other providers begin conducting transactions at scale, the payment infrastructure they rely on will shape trillions of dollars in transaction volume. By co-authoring the standard, Stripe ensures its APIs and payment flows are first-class citizens within the ACP ecosystem, giving it a structural advantage in capturing agent-driven payment volume. The partnership also reflects a broader strategic alignment: both companies benefit from an open, interoperable agentic commerce ecosystem, as it maximizes the addressable market for agents and payment infrastructure alike.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">OpenAI Agentic Commerce News</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        OpenAI's entry into the agentic commerce space has been one of the most closely watched developments in both the AI and payments industries. The launch of Operator in January 2025 marked the moment OpenAI transitioned from providing general-purpose AI models to deploying a consumer-facing agent capable of performing real-world tasks, including commercial transactions. Operator's ability to navigate websites, interact with checkout flows, and complete purchases on behalf of users demonstrated that agentic commerce had moved from theoretical concept to functional product. The launch generated extensive coverage across technology, business, and financial media, and prompted competitors to accelerate their own agentic commerce initiatives.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The subsequent announcement of the Agentic Commerce Protocol with Stripe amplified OpenAI's influence in this space. Industry analysts have described ACP as a potential inflection point for the payments industry, noting that it establishes a credible path toward standardized agent-driven commerce at scale. The protocol's open design and the involvement of a trusted payments infrastructure provider in Stripe have helped it gain endorsements from companies that might otherwise have been skeptical of an AI company proposing financial transaction standards. PayPal, Visa, Mastercard, and Shopify have all signaled varying degrees of ACP readiness or compatibility, lending the protocol a cross-industry legitimacy that purely bilateral partnerships rarely achieve.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Looking ahead, OpenAI is expected to deepen its agentic commerce capabilities by expanding Operator's transactional abilities, integrating ACP more tightly into its developer APIs so that third-party agents built on OpenAI models can also conduct commerce, and working with additional payment providers and merchants to broaden the ACP-compatible ecosystem. The company's position as the leading AI platform, combined with the growing installed base of ChatGPT and related products, gives it unique distribution advantages for agentic commerce features. As the protocol matures and more merchants become ACP-ready, OpenAI's role as both an agent provider and a protocol co-author positions it at the center of what many observers believe will become a multi-trillion-dollar segment of the global digital economy.
+      </p>
+    </section>
+
+    <FAQ items={faqItems} />
+    <RelatedCompanies companies={relatedCompanies} />
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

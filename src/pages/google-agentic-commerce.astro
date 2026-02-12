@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedCompanies from '../components/RelatedCompanies.astro';
+import FAQ from '../components/FAQ.astro';
+
+const title = "Google Agentic Commerce — Partnerships & AI Commerce Strategy";
+const description = "Google's role in agentic commerce. Covering the Google-PayPal agentic commerce partnership and Google's AI shopping initiatives.";
+const canonical = "https://agentic.commerce/google-agentic-commerce";
+const lastUpdated = "2026-02-12";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "Google", url: canonical },
+];
+
+const faqItems = [
+  { question: "What is Google's A2A protocol for agentic commerce?", answer: "Google's Agent-to-Agent (A2A) protocol, launched in April 2025, is an open communication standard that enables AI agents built on different platforms to discover, negotiate with, and transact with one another. In the context of agentic commerce, A2A allows a consumer's shopping agent to communicate directly with a merchant's sales agent, compare offers across vendors, and execute multi-step purchasing workflows — all without requiring the agents to share the same underlying framework or AI model." },
+  { question: "How does Google's AI shopping experience use agentic commerce?", answer: "Google has integrated agentic commerce capabilities into its AI-powered shopping experiences through Gemini, its multimodal AI platform. Gemini-powered shopping agents can understand natural language purchase requests, search across Google's product index, compare prices and reviews, and initiate checkout through integrated payment systems including Google Pay. These agents operate within Google's ecosystem while also leveraging the A2A protocol to interact with external merchant agents and payment platforms." },
+];
+
+const relatedCompanies = [
+  { name: "OpenAI", slug: "openai-agentic-commerce-protocol" },
+  { name: "Shopify", slug: "shopify-agentic-commerce" },
+  { name: "PayPal", slug: "paypal-agentic-commerce" },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": "2026-02-12",
+    "dateModified": lastUpdated,
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: {lastUpdated}</p>
+    <h1 class="text-4xl font-bold mb-6">Google Agentic Commerce</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Google's Agentic Commerce Strategy</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Google occupies a unique position in the agentic commerce landscape, operating simultaneously as an AI platform provider, a commerce infrastructure company, and a consumer-facing shopping destination. The company's agentic commerce strategy is anchored by two pillars: the Agent-to-Agent (A2A) protocol, which provides the open communication standard for multi-agent interactions, and Gemini, Google's multimodal AI platform that powers consumer-facing agent experiences. Together, these capabilities allow Google to influence agentic commerce at both the infrastructure and application layers — defining how agents communicate with each other while also building the agents that consumers use to shop, compare, and purchase. This dual positioning gives Google significant leverage in shaping the emerging agentic commerce ecosystem, though it also raises questions about neutrality that the company has sought to address through open-source contributions and standards participation.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The A2A protocol, launched in April 2025, is arguably Google's most consequential contribution to agentic commerce infrastructure. A2A defines a standardized way for AI agents to discover one another, exchange capability descriptions, negotiate terms, and coordinate multi-step workflows — all critical functions for commerce scenarios where a buyer's agent needs to interact with seller agents, payment agents, and logistics agents to complete a transaction. Unlike proprietary agent communication systems, A2A is designed to be platform-agnostic, allowing agents built on Google's Gemini to interact seamlessly with agents built on OpenAI, Anthropic, or any other AI platform that implements the protocol. Google has also co-developed the Universal Commerce Protocol (UCP) with Shopify, which layers commerce-specific semantics on top of A2A's general-purpose agent communication capabilities. On the consumer experience side, Google has integrated agentic commerce features into its search and shopping products, allowing Gemini-powered agents to assist users with product discovery, price comparison, and purchase execution across Google's vast index of merchants and products. Google Pay serves as the payment backbone for these transactions, providing tokenized payment credentials that agents can use to complete purchases securely on the user's behalf.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Google Agentic Commerce Partnerships</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Google's partnership strategy for agentic commerce reflects the company's ambition to establish its protocols and platforms as foundational infrastructure for the entire ecosystem. The most strategically significant partnership is Google's collaboration with Shopify on the Universal Commerce Protocol. Shopify, as the platform powering millions of merchants globally, brings unmatched merchant-side reach to the partnership, while Google contributes its AI capabilities, the A2A protocol framework, and its consumer-facing distribution through Search and Shopping. The UCP that emerged from this collaboration defines standardized data formats, interaction patterns, and transaction workflows that any AI agent can use to interact with any UCP-compliant merchant — a level of interoperability that is essential for agentic commerce to scale beyond closed ecosystems.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Google has also established a significant partnership with PayPal to integrate PayPal's payment capabilities into Google's agentic commerce infrastructure. This partnership allows AI agents operating within Google's ecosystem to offer PayPal as a payment option alongside Google Pay, expanding the range of payment methods available for agent-initiated transactions. The collaboration extends to shared work on agent authentication standards and consumer protection frameworks, ensuring that transactions processed through either payment system maintain consistent security and dispute resolution guarantees. Beyond these headline partnerships, Google has engaged with dozens of AI agent developers and enterprise software companies to promote adoption of the A2A protocol. The company has released open-source reference implementations, developer toolkits, and testing infrastructure that lower the barrier for developers who want to build A2A-compatible agents. Google Cloud has also introduced managed services for hosting and orchestrating commerce agents, allowing businesses to deploy agentic commerce capabilities without building the underlying infrastructure from scratch. Collectively, these partnerships position Google as a central hub in the agentic commerce ecosystem, though the company continues to emphasize the open and interoperable nature of its approach to counter concerns about platform lock-in.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Google Agentic Commerce News</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Google's agentic commerce timeline has been defined by a rapid sequence of product launches, protocol releases, and partnership announcements that have established the company as a central figure in the space. The launch of the A2A protocol in April 2025 was the watershed moment, drawing immediate attention from the AI and commerce industries alike. Google released the protocol as an open specification accompanied by reference implementations in multiple programming languages, signaling that the company intended A2A to be a genuine industry standard rather than a proprietary advantage. Within weeks of the launch, several major AI platforms announced their intention to support A2A, validating Google's approach and establishing early momentum for the protocol's adoption. The co-development of the Universal Commerce Protocol with Shopify, announced shortly after A2A's launch, extended Google's influence into the commerce-specific layer, demonstrating that A2A's general-purpose agent communication capabilities could be effectively specialized for commercial transactions.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Throughout the latter half of 2025, Google integrated agentic commerce features into its consumer products at an accelerating pace. Gemini-powered shopping assistants appeared in Google Search, Google Shopping, and the Google app, offering users the ability to delegate complex purchasing tasks to AI agents that could research products, compare options, negotiate where applicable, and execute purchases. Google reported strong user engagement with these features, particularly for high-consideration purchases where the research and comparison workload is substantial. The Google-PayPal partnership announcement in late 2025 expanded the payment options available to Google's commerce agents and was interpreted by analysts as a move to ensure that Google's agentic commerce ecosystem remained payment-network-neutral. In early 2026, Google announced the formation of an Agentic Commerce Advisory Council comprising representatives from retail, finance, logistics, and consumer advocacy organizations, tasked with guiding the responsible development of autonomous agent commerce capabilities. As of February 2026, Google continues to iterate on both the A2A protocol and its Gemini-powered commerce agents, with the company describing agentic commerce as a core strategic priority that will shape the future of search, shopping, and advertising — the three pillars of Google's commercial business.
+      </p>
+    </section>
+
+    <FAQ items={faqItems} />
+    <RelatedCompanies companies={relatedCompanies} />
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

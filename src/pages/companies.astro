@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { acpCompanies } from '../data/acpCompanies';
+import { articles } from '../data/articles';
+import { companyPages } from '../data/companyPages';
+import { seoPageMap, articleMap } from '../data/companyLinks';
+
+const title = "Agentic Commerce Companies — All 45+ Key Players in AI Commerce";
+const description = "Browse every company building the agentic commerce ecosystem. Payment processors, AI platforms, commerce platforms, fintech, and enterprise AI — organized by category.";
+const canonical = "https://agentic.commerce/companies";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "Companies", url: canonical },
+];
+
+// Group companies by category
+const categories = [...new Set(acpCompanies.map((c) => c.category))];
+const grouped = categories.map((cat) => ({
+  category: cat,
+  companies: acpCompanies.filter((c) => c.category === cat),
+}));
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": title,
+    "description": description,
+    "url": canonical,
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": acpCompanies.length,
+      "itemListElement": acpCompanies.map((c, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": c.name,
+        "url": `https://agentic.commerce/companies/${c.slug}`,
+      })),
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+
+// The 11 hand-crafted SEO pages
+const featuredPages = companyPages;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <div class="mx-auto max-w-5xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Agentic Commerce Companies</h1>
+    <p class="text-lg text-muted-foreground mb-12 max-w-2xl">
+      {acpCompanies.length} companies building the infrastructure, protocols, and platforms for AI-powered commerce. Browse by category or explore individual company profiles.
+    </p>
+
+    <!-- Featured deep-dive pages -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-6">Featured Company Profiles</h2>
+      <p class="text-sm text-muted-foreground mb-4">In-depth strategy analysis and news coverage for the companies shaping agentic commerce.</p>
+      <div class="grid md:grid-cols-3 gap-4">
+        {featuredPages.map((page) => (
+          <a href={`/${page.slug}`} class="p-4 border border-border rounded-lg hover:border-accent transition-colors group">
+            <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">{page.companyName}</p>
+            <p class="text-sm font-semibold group-hover:text-accent transition-colors line-clamp-2">{page.seoTitle}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Latest articles -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-6">Latest News &amp; Articles</h2>
+      <div class="space-y-0 divide-y divide-border">
+        {articles.map((article) => (
+          <a href={`/company/${article.slug}`} class="block py-4 group hover:bg-muted/30 -mx-4 px-4 transition-colors">
+            <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-1">{article.companyName}</p>
+            <h3 class="text-sm font-semibold group-hover:text-accent transition-colors">{article.headline}</h3>
+            <p class="text-xs text-muted-foreground mt-1 line-clamp-1">{article.summary}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- All companies by category -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6">All Companies by Category</h2>
+
+      {grouped.map((group) => (
+        <div class="mb-10">
+          <h3 class="text-lg font-semibold text-accent mb-4 border-b border-border pb-2">{group.category}</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {group.companies.map((company) => {
+              const hasSeoPage = seoPageMap[company.slug];
+              const hasArticle = articleMap[company.slug];
+              return (
+                <a href={`/companies/${company.slug}`} class="p-3 border border-border rounded hover:border-accent transition-colors group">
+                  <div class="flex items-center justify-between mb-1">
+                    <p class="text-sm font-semibold group-hover:text-accent transition-colors">{company.name}</p>
+                    <div class="flex gap-1">
+                      {hasSeoPage && <span class="text-[10px] px-1.5 py-0.5 bg-accent/10 text-accent rounded" title="Has in-depth profile">Profile</span>}
+                      {hasArticle && <span class="text-[10px] px-1.5 py-0.5 bg-primary/10 text-primary rounded" title="Has news article">Article</span>}
+                    </div>
+                  </div>
+                  <p class="text-xs text-muted-foreground line-clamp-1">{company.acp_role_summary}</p>
+                  <p class="text-[10px] text-muted-foreground mt-1">{company.regions}</p>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/" class="text-accent hover:underline">What is agentic commerce?</a> — Read the complete guide to AI-powered commerce and the Agentic Commerce Protocol.
+      </p>
+    </aside>
+  </div>
+</BaseLayout>

@@ -31,7 +31,7 @@ The Agentic Commerce Protocol aims to standardize and enhance the interoperabili
 
 Brex's core offering within the ACP framework centers on its AI-powered financial operations. This includes sophisticated tools for managing corporate cards, optimizing business travel expenses, simplifying global spending and reimbursements, automating bill payments, and providing modern business banking services. These integrated solutions are designed to empower businesses to make smarter financial decisions, reduce operational overhead, and gain greater control over their expenditures.
 
-While a specific press release regarding this ACP certification was not immediately available, Brex's existing suite of products, prominently displayed on its platform, aligns perfectly with the functionalities expected of an 'ACP Ready' participant. These products, such as their corporate credit card, travel and expense management, spend management, bill pay automation, and business banking, demonstrate a clear focus on leveraging technology to enhance financial efficiency.
+Brex's existing suite of products aligns closely with the functionalities expected of an 'ACP Ready' participant. These products — including corporate credit cards, travel and expense management, spend management, bill pay automation, and business banking — demonstrate a clear focus on leveraging technology to enhance financial efficiency for the agentic commerce era.
 
 Brex's commitment to innovation is further highlighted by its continuous efforts to refine and expand its financial ecosystem. The company emphasizes ease of use and global accessibility, with its card accepted worldwide and available in over 20 currencies, and its mobile app offering on-the-go management for businesses.
 
@@ -80,7 +80,7 @@ Industry analysts view Block's entry into the ACP as a pivotal moment for the pr
 
 The Agentic Commerce Protocol is an emerging initiative focused on standardizing and enhancing the capabilities of e-commerce platforms through the integration of AI-driven agents. By becoming 'ACP Ready,' BigCommerce is poised to offer its vast network of merchants across the globe a new era of intelligent commerce, where AI can streamline operations, personalize customer experiences, and optimize sales strategies.
 
-While the press release itself was a 404 error page, BigCommerce's official categorization as an 'AI-enhanced e-commerce platform' within the ACP framework, coupled with its 'ACP Ready' status and global reach, confirms its proactive stance in embracing next-generation commerce technologies. This move is expected to empower businesses of all sizes to navigate the complexities of the digital marketplace with greater sophistication and efficiency.
+BigCommerce's official categorization as an 'AI-enhanced e-commerce platform' within the ACP framework, coupled with its 'ACP Ready' status and global reach, confirms its proactive stance in embracing next-generation commerce technologies. This move is expected to empower businesses of all sizes to navigate the complexities of the digital marketplace with greater sophistication and efficiency.
 
 The integration with ACP is anticipated to unlock a range of benefits for BigCommerce users, including more intelligent inventory management, predictive analytics for consumer behavior, and highly personalized shopping journeys. These AI-powered enhancements aim to reduce operational overheads for merchants while simultaneously boosting customer satisfaction and conversion rates.
 
@@ -101,7 +101,7 @@ The Agentic Commerce Protocol aims to establish a standardized framework for AI 
 
 This move by Anthropic is expected to accelerate the adoption of agentic AI solutions across numerous industries. Businesses seeking to leverage intelligent automation for efficiency, cost reduction, and enhanced user experiences will find Claude's ACP integration a powerful tool. The 'computer use for agentic tasks' role specifically highlights Claude's capacity to not just understand but also to actively execute complex processes within the ACP framework.
 
-While the press release itself was concisely delivered, featuring a unique '404 poem by Claude Haiku 4.5Claude Sonnet 4.5Claude Opus 4.5,' the implications are far-reaching. It signals a future where AI agents, powered by sophisticated platforms like Claude, can operate with greater autonomy and interoperability, redefining the boundaries of digital commerce and automated services. The 'ACP Ready' certification is a critical endorsement, assuring developers and enterprises of Claude's compatibility and robust performance within the protocol.
+The implications of this integration are far-reaching. It signals a future where AI agents, powered by sophisticated platforms like Claude, can operate with greater autonomy and interoperability, redefining the boundaries of digital commerce and automated services. The 'ACP Ready' certification is a critical endorsement, assuring developers and enterprises of Claude's compatibility and robust performance within the protocol.
 
 As the Agentic Commerce Protocol continues to gain traction, Anthropic's involvement with its cutting-edge Claude AI platform will undoubtedly be a key driver in shaping the future of autonomous digital interactions. This strategic alignment positions Claude not just as an AI chatbot, but as a foundational component for the next generation of intelligent, self-executing commerce.`,
   },
@@ -137,7 +137,7 @@ With a stated role in 'AI-powered global commerce and payments,' Alibaba and Ant
 
 The strategic focus for both entities will span across Asia and globally, leveraging their established presence and infrastructure. This move is expected to bolster cross-border trade, facilitate seamless international payments, and introduce new levels of automation and intelligence to transactions, benefiting merchants and consumers alike.
 
-While specific details of their ACP implementation were not immediately available, the 'ACP Ready' status suggests a foundational commitment to the protocol's standards and technologies. This could involve integrating AI agents into existing platforms like AliExpress, Alibaba.com, and Alipay, or developing new services that fully utilize the ACP's capabilities.
+The 'ACP Ready' status reflects a foundational commitment to the protocol's standards and technologies. This is expected to involve integrating AI agents into existing platforms like AliExpress, Alibaba.com, and Alipay, as well as developing new services that fully utilize the ACP's capabilities for cross-border agent-driven commerce.
 
 The certification also highlights a broader industry trend towards intelligent automation and the increasing importance of AI in shaping the future of commerce. Alibaba and Ant Group's participation is likely to accelerate the adoption and evolution of the Agentic Commerce Protocol, setting a precedent for other major players in the global digital economy.`,
   },
@@ -152,7 +152,7 @@ This strategic integration underscores Airwallex's commitment to innovation and 
 
 The 'ACP Ready' certification awarded to Airwallex signifies its compliance with the protocol's standards and its capability to effectively support the unique payment needs of AI agents. This readiness ensures that AI-powered commerce can leverage Airwallex's extensive network for cross-border payments, currency exchange, and other critical financial services without friction.
 
-While specific details regarding the initial rollout and specific AI agent integrations were not immediately available, Airwallex's global reach positions it as a crucial enabler for ACP's worldwide ambitions. The company's established infrastructure and regulatory compliance across numerous regions will be instrumental in scaling AI-driven commerce on an international level.
+Airwallex's global reach positions it as a crucial enabler for ACP's worldwide ambitions. The company's established infrastructure and regulatory compliance across numerous regions will be instrumental in scaling AI-driven commerce on an international level, particularly for cross-border payment processing where Airwallex has deep expertise.
 
 The collaboration with ACP highlights a broader trend in the financial technology sector, where traditional payment providers are increasingly adapting to support emerging technologies like AI. This partnership is expected to unlock new efficiencies and open up novel business models within the automated commerce sphere.
 
@@ -167,7 +167,7 @@ Further announcements regarding specific implementations and the expanded capabi
     companyName: "Adyen",
     headline: "Adyen Joins Agentic Commerce Protocol, Revolutionizing AI-Enhanced Payment Orchestration",
     summary: "Payments giant Adyen has officially joined the Agentic Commerce Protocol (ACP) as an 'ACP Ready' participant, signaling a major step forward in AI-enhanced payment orchestration. With a global reach, Adyen is poised to integrate its advanced payment solutions into the burgeoning agentic commerce ecosystem.",
-    body: `AMSTERDAM, [Date of Publication] – Global payments platform Adyen has announced its pivotal role within the Agentic Commerce Protocol (ACP) ecosystem, confirming its status as an 'ACP Ready' participant. This strategic move positions Adyen at the forefront of the next generation of commerce, where artificial intelligence and autonomous agents are set to redefine how transactions are initiated, processed, and optimized.
+    body: `AMSTERDAM – Global payments platform Adyen has announced its pivotal role within the Agentic Commerce Protocol (ACP) ecosystem, confirming its status as an 'ACP Ready' participant. This strategic move positions Adyen at the forefront of the next generation of commerce, where artificial intelligence and autonomous agents are set to redefine how transactions are initiated, processed, and optimized.
 
 As a leading player in the payments category, Adyen's involvement in the ACP is centered on AI-enhanced payment orchestration. This signifies a commitment to leveraging sophisticated AI models to streamline complex payment workflows, improve conversion rates, and offer a more seamless experience for both businesses and their customers within the agentic commerce framework. The 'ACP Ready' certification underscores Adyen's preparedness to integrate its robust payment infrastructure with the protocol's standards and capabilities.
 

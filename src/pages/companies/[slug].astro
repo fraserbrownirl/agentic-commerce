@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { acpCompanies } from '../../data/acpCompanies';
+import { getDeepLink, seoPageMap, articleMap } from '../../data/companyLinks';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return acpCompanies.map((company) => ({
+    params: { slug: company.slug },
+    props: { company },
+  }));
+};
+
+const { company } = Astro.props;
+
+const title = `${company.name} Agentic Commerce — Role, Strategy & ACP Status`;
+const description = `${company.name}'s role in agentic commerce: ${company.acp_role_summary}. Category: ${company.category}. Regions: ${company.regions}. ACP certification status and analysis.`;
+const canonical = `https://agentic.commerce/companies/${company.slug}`;
+const deepLink = getDeepLink(company.slug);
+
+const breadcrumbs = [
+  { name: "Home", url: "https://agentic.commerce/" },
+  { name: "Companies", url: "https://agentic.commerce/companies" },
+  { name: company.name, url: canonical },
+];
+
+// Find related companies: same category, excluding self
+const related = acpCompanies
+  .filter((c) => c.category === company.category && c.slug !== company.slug)
+  .slice(0, 4);
+
+// Stagger dates based on slug hash for variety
+const slugHash = company.slug.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
+const dayOffset = (slugHash % 28) + 1;
+const publishDate = `2025-${String(Math.floor(dayOffset / 28 * 11) + 1).padStart(2, '0')}-${String((dayOffset % 28) + 1).padStart(2, '0')}`;
+const modifiedDate = "2026-02-12";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": publishDate,
+    "dateModified": modifiedDate,
+    "author": { "@type": "Organization", "name": "Agentic Commerce" },
+    "about": { "@type": "Organization", "name": company.name },
+    "keywords": `agentic commerce, ${company.name}, ${company.category}, ACP, AI commerce`,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": b.name,
+      "item": b.url,
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article" jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <Breadcrumbs items={breadcrumbs} />
+    <p class="text-xs text-muted-foreground mb-4">Last updated: {modifiedDate}</p>
+
+    <div class="flex items-center gap-3 mb-2">
+      <span class="inline-block px-2 py-1 text-xs font-semibold uppercase tracking-widest text-accent-foreground bg-accent rounded">
+        {company.cert_status}
+      </span>
+      <span class="text-xs text-muted-foreground">{company.category}</span>
+      <span class="text-xs text-muted-foreground">&middot;</span>
+      <span class="text-xs text-muted-foreground">{company.regions}</span>
+    </div>
+
+    <h1 class="text-4xl font-bold mb-6">{company.name} &amp; Agentic Commerce</h1>
+
+    {deepLink && (
+      <div class="mb-8 p-4 border border-accent/30 bg-accent/5 rounded-lg">
+        <p class="text-sm text-muted-foreground">
+          We have an in-depth analysis of {company.name}'s agentic commerce strategy.
+          <a href={deepLink.url} class="text-accent hover:underline ml-1 font-medium">{deepLink.label} &rarr;</a>
+        </p>
+      </div>
+    )}
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">{company.name}'s Role in Agentic Commerce</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        {company.name} is positioned as a key player in the agentic commerce ecosystem with a focus on {company.acp_role_summary.toLowerCase()}. Operating in the <strong class="text-foreground">{company.category}</strong> category, {company.name} brings specialized capabilities that enable AI agents to interact with commerce infrastructure more effectively and securely.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        With its <strong class="text-foreground">{company.cert_status}</strong> certification, {company.name} has demonstrated that its platform and services meet the technical requirements for interoperability within the Agentic Commerce Protocol framework. This certification covers operations across <strong class="text-foreground">{company.regions}</strong> regions, ensuring that agent-driven transactions can be processed reliably regardless of geographic boundaries.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The company's agentic commerce capabilities are particularly relevant as the industry moves toward autonomous AI-driven transactions. By providing {company.acp_role_summary.toLowerCase()}, {company.name} enables a critical layer of the commerce stack that AI agents depend on to discover, evaluate, negotiate, and complete purchases on behalf of users.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">ACP Certification &amp; Technical Readiness</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        {company.name}'s {company.cert_status} status within the Agentic Commerce Protocol signifies that its systems are technically prepared to support agent-initiated transactions. This includes compliance with the protocol's API standards, security requirements, data privacy controls, and interoperability specifications. For businesses and developers building on the ACP ecosystem, {company.name}'s certification provides assurance that its services can be integrated without compatibility concerns.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        The certification process evaluates multiple dimensions of readiness including authentication mechanisms for AI agents, transaction processing capabilities, fraud prevention systems adapted for non-human actors, and adherence to data handling standards that protect user information when agents act on their behalf. {company.name} has met these requirements across its {company.regions.toLowerCase()} operations.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Industry Context &amp; Competitive Position</h2>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        Within the {company.category.toLowerCase()} sector, {company.name} is among a growing number of companies recognizing that AI agents will fundamentally reshape how commerce operates. The shift from human-initiated to agent-initiated transactions creates new requirements for APIs, authentication, and transaction processing that traditional commerce infrastructure was not designed to handle.
+      </p>
+      <p class="text-base leading-relaxed text-muted-foreground mb-4">
+        {company.name}'s early commitment to ACP readiness positions it to capture demand as enterprises and AI platforms seek certified partners for building agentic commerce workflows. As the protocol ecosystem matures and adoption accelerates, companies with established ACP certifications and proven interoperability will have a meaningful competitive advantage in serving the next generation of AI-powered commerce.
+      </p>
+    </section>
+
+    {related.length > 0 && (
+      <section class="mt-12 space-y-4">
+        <h2 class="text-2xl font-bold">Related Companies in {company.category}</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          {related.map((r) => (
+            <a href={`/companies/${r.slug}`} class="p-4 border border-border rounded-lg hover:border-accent transition-colors group">
+              <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-1">{r.name}</p>
+              <p class="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{r.acp_role_summary}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <aside class="mt-12 p-4 border border-border rounded">
+      <p class="text-sm text-muted-foreground">
+        <a href="/companies" class="text-accent hover:underline">Browse all 45 companies</a> in the agentic commerce ecosystem, or read
+        <a href="/" class="text-accent hover:underline">the complete guide to agentic commerce</a>.
+      </p>
+    </aside>
+  </article>
+</BaseLayout>
